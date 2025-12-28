@@ -94,8 +94,8 @@
         fetch('/api/content')
             .then(response => response.json())
             .then(data => {
-                if (data.blog) {
-                    const container = document.getElementById('blog-container');
+                const container = document.getElementById('blog-container');
+                if (data.blog && data.blog.length > 0) {
                     container.innerHTML = ''; // Clear loading text
 
                     data.blog.forEach(post => {
@@ -115,9 +115,14 @@
                         `;
                         container.appendChild(article);
                     });
+                } else {
+                    container.innerHTML = '<p>No blog posts found yet. Check back soon!</p>';
                 }
             })
-            .catch(error => console.error('Error loading blog:', error));
+            .catch(error => {
+                console.error('Error loading blog:', error);
+                document.getElementById('blog-container').innerHTML = '<p>Error loading blog posts. Please try again later.</p>';
+            });
     </script>
 </body>
 

@@ -141,11 +141,17 @@
             .then(response => response.json())
             .then(data => {
                 if (data.journey) {
-                    document.getElementById('journey-title').innerText = data.journey.title;
-                    document.getElementById('journey-content').innerHTML = data.journey.content; // Use innerHTML to allow simple formatting
+                    const titleEl = document.getElementById('journey-title');
+                    const contentEl = document.getElementById('journey-content');
+
+                    if (titleEl && data.journey.title) titleEl.innerText = data.journey.title;
+                    if (contentEl && data.journey.content) contentEl.innerHTML = data.journey.content;
                 }
             })
-            .catch(error => console.error('Error loading content:', error));
+            .catch(error => {
+                console.error('Error loading content:', error);
+                document.getElementById('journey-content').innerHTML = '<p>Error loading story content. Please try again later.</p>';
+            });
     </script>
 </body>
 

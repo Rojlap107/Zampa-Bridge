@@ -1,7 +1,7 @@
 {
   "journey": {
-    "title": "Our Journey",
-    "content": "Welcome to our story. This is placeholder text that you can edit from the Admin Panel."
+    "title": "We are working in a juniper",
+    "content": "Juniper working schedule was productive!"
   },
   "episodes": [
     {
@@ -21,6 +21,18 @@
       "title": "Episode 03",
       "description": "Description for episode 3",
       "videoUrl": "https://www.youtube.com/embed/placeholder3"
+    },
+    {
+      "id": 1766923697411,
+      "title": "Verified Ep",
+      "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "description": "Success"
+    },
+    {
+      "id": 1766923837388,
+      "title": "",
+      "videoUrl": "",
+      "description": ""
     }
   ],
   "blog": [
@@ -35,6 +47,12 @@
       "date": "OCTOBER 10, 2024",
       "title": "Community",
       "summary": "Blog summary..."
+    },
+    {
+      "id": 1766923730176,
+      "title": "Verified Blog",
+      "date": "TODAY",
+      "summary": "Success"
     }
   ]
 }

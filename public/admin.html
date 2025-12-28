@@ -6,47 +6,245 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel | Zampa Bridge</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --admin-bg: #f8f9fa;
+            --admin-card: #ffffff;
+            --admin-primary: #1a1a1a;
+            --admin-accent: #c49a6c;
+            --admin-text: #333;
+            --admin-muted: #666;
+            --admin-border: #e0e0e0;
+            --admin-success: #28a745;
+            --admin-danger: #dc3545;
+        }
+
         body {
-            padding: 40px;
-            background-color: #f4f4f4;
-            color: #333;
+            padding: 0;
+            margin: 0;
+            background-color: var(--admin-bg);
+            color: var(--admin-text);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
-        .admin-container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
+        .admin-sidebar {
+            width: 260px;
+            height: 100vh;
+            background: var(--admin-primary);
+            color: white;
+            position: fixed;
+            left: 0;
+            top: 0;
+            padding: 30px 20px;
+            box-sizing: border-box;
+        }
+
+        .admin-sidebar h1 {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            color: var(--admin-accent);
+            text-align: center;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+        }
+
+        .admin-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .nav-item {
+            padding: 12px 15px;
             border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #ccc;
         }
 
-        h1 {
-            color: #333;
+        .nav-item:hover,
+        .nav-item.active {
+            background: rgba(196, 154, 108, 0.2);
+            color: var(--admin-accent);
         }
 
-        .tabs {
+        .nav-item.active {
+            font-weight: bold;
+        }
+
+        .admin-main {
+            margin-left: 260px;
+            padding: 40px;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .header-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .admin-card {
+            background: var(--admin-card);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid var(--admin-border);
+        }
+
+        .admin-card h2 {
+            margin-top: 0;
+            border-bottom: 1px solid var(--admin-border);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            font-size: 1.25rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--admin-muted);
+        }
+
+        input[type="text"],
+        input[type="date"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--admin-border);
+            border-radius: 6px;
+            font-family: inherit;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 200px;
+            resize: vertical;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: opacity 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .btn-primary {
+            background: var(--admin-accent);
+            color: white;
+        }
+
+        .btn-success {
+            background: var(--admin-success);
+            color: white;
+        }
+
+        .btn-danger {
+            background: var(--admin-danger);
+            color: white;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--admin-border);
+            color: var(--admin-text);
+        }
+
+        .item-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: #f9f9f9;
+            border: 1px solid var(--admin-border);
+            border-radius: 8px;
+        }
+
+        .item-info h4 {
+            margin: 0 0 5px 0;
+        }
+
+        .item-info p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: var(--admin-muted);
+        }
+
+        .item-actions {
             display: flex;
             gap: 10px;
-            margin-bottom: 30px;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
         }
 
-        .tab-btn {
-            padding: 10px 20px;
-            border: none;
-            background: none;
-            cursor: pointer;
-            font-weight: bold;
-            color: #888;
-            border-radius: 4px;
-        }
-
-        .tab-btn.active {
-            background: var(--primary-brand);
+        #notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 8px;
             color: white;
+            font-weight: bold;
+            display: none;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-footer {
+            margin-top: 20px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
         }
 
         .tab-content {
@@ -56,227 +254,316 @@
         .tab-content.active {
             display: block;
         }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        input[type="text"],
-        textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-
-        textarea {
-            height: 150px;
-        }
-
-        .list-item {
-            background: #f9f9f9;
-            padding: 15px;
-            border: 1px solid #eee;
-            margin-bottom: 15px;
-            border-radius: 4px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .btn-save {
-            background-color: #28a745;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1rem;
-            margin-top: 20px;
-        }
-
-        .btn-delete {
-            background-color: #dc3545;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.8rem;
-        }
-
-        .btn-add {
-            background-color: var(--primary-brand);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-        }
     </style>
 </head>
 
 <body>
 
-    <div class="admin-container">
-        <h1>Zampa Bridge CMS</h1>
+    <div id="notification"></div>
 
-        <div class="tabs">
-            <button class="tab-btn active" onclick="switchTab('journey')">Journey</button>
-            <button class="tab-btn" onclick="switchTab('episodes')">Episodes</button>
-            <button class="tab-btn" onclick="switchTab('blog')">Blog</button>
-        </div>
+    <aside class="admin-sidebar">
+        <h1>Zampa CMC</h1>
+        <nav class="admin-nav">
+            <div class="nav-item active" onclick="switchTab('journey')">
+                <i class="fas fa-mountain"></i> Journey
+            </div>
+            <div class="nav-item" onclick="switchTab('episodes')">
+                <i class="fas fa-video"></i> Episodes
+            </div>
+            <div class="nav-item" onclick="switchTab('blog')">
+                <i class="fas fa-blog"></i> Blog Posts
+            </div>
+            <a href="index.html" class="nav-item" style="text-decoration: none; margin-top: auto;">
+                <i class="fas fa-external-link-alt"></i> View Site
+            </a>
+        </nav>
+    </aside>
 
-        <div id="msg" style="padding: 10px; margin-bottom: 20px; border-radius: 4px; display: none;"></div>
-
+    <main class="admin-main">
         <!-- Journey Tab -->
         <div id="journey" class="tab-content active">
-            <h2>Edit Journey Page</h2>
-            <div class="form-group">
-                <label>Page Title</label>
-                <input type="text" id="journey-title-input">
+            <div class="header-actions">
+                <h2>Edit Journey Content</h2>
+                <button class="btn btn-success" onclick="saveJourney()">
+                    <i class="fas fa-save"></i> Save Changes
+                </button>
             </div>
-            <div class="form-group">
-                <label>Content (HTML allowed)</label>
-                <textarea id="journey-content-input"></textarea>
+
+            <div class="admin-card">
+                <div class="form-group">
+                    <label>Page Title</label>
+                    <input type="text" id="journey-title-input" placeholder="Enter title...">
+                </div>
+                <div class="form-group">
+                    <label>Journey Story (HTML recommended for paragraphs)</label>
+                    <textarea id="journey-content-input" placeholder="Tell your story..."></textarea>
+                </div>
             </div>
-            <button class="btn-save" onclick="saveContent()">Save Changes</button>
         </div>
 
         <!-- Episodes Tab -->
         <div id="episodes" class="tab-content">
-            <h2>Manage Episodes</h2>
-            <button class="btn-add" onclick="createNewEpisode()">+ Add New Episode</button>
-            <div id="episodes-list"></div>
-            <button class="btn-save" onclick="saveContent()">Save Changes</button>
+            <div class="header-actions">
+                <h2>Manage Episodes</h2>
+                <button class="btn btn-primary" onclick="openEpisodeModal()">
+                    <i class="fas fa-plus"></i> Add New Episode
+                </button>
+            </div>
+
+            <div class="admin-card">
+                <div id="episodes-list" class="item-list">
+                    <!-- Dynamic List -->
+                </div>
+            </div>
         </div>
 
         <!-- Blog Tab -->
         <div id="blog" class="tab-content">
-            <h2>Manage Blog Posts</h2>
-            <button class="btn-add" onclick="createNewBlog()">+ Add New Blog Post</button>
-            <div id="blog-list"></div>
-            <button class="btn-save" onclick="saveContent()">Save Changes</button>
+            <div class="header-actions">
+                <h2>Manage Blog Posts</h2>
+                <button class="btn btn-primary" onclick="openBlogModal()">
+                    <i class="fas fa-plus"></i> Add New Post
+                </button>
+            </div>
+
+            <div class="admin-card">
+                <div id="blog-list" class="item-list">
+                    <!-- Dynamic List -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Episode Modal -->
+    <div id="episode-modal" class="modal">
+        <div class="modal-content">
+            <h3 id="episode-modal-title">Add New Episode</h3>
+            <input type="hidden" id="episode-index">
+            <div class="form-group">
+                <label>Episode Title</label>
+                <input type="text" id="ep-title">
+            </div>
+            <div class="form-group">
+                <label>Video URL (YouTube Embed Link)</label>
+                <input type="text" id="ep-url" placeholder="https://www.youtube.com/embed/...">
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea id="ep-desc" style="height: 100px;"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModals()">Cancel</button>
+                <button class="btn btn-primary" onclick="saveEpisode()">Save Episode</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog Modal -->
+    <div id="blog-modal" class="modal">
+        <div class="modal-content">
+            <h3 id="blog-modal-title">Add New Blog Post</h3>
+            <input type="hidden" id="blog-index">
+            <div class="form-group">
+                <label>Post Title</label>
+                <input type="text" id="blog-title">
+            </div>
+            <div class="form-group">
+                <label>Publication Date</label>
+                <input type="text" id="blog-date" placeholder="OCTOBER 24, 2024">
+            </div>
+            <div class="form-group">
+                <label>Summary</label>
+                <textarea id="blog-summary" style="height: 100px;"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModals()">Cancel</button>
+                <button class="btn btn-primary" onclick="saveBlog()">Save Post</button>
+            </div>
         </div>
     </div>
 
     <script>
-        let siteData = {};
+        let siteData = {
+            journey: { title: "", content: "" },
+            episodes: [],
+            blog: []
+        };
 
-        // Fetch Content on Load
+        // Initialize
         fetch('/api/content')
             .then(res => res.json())
             .then(data => {
                 siteData = data;
-                populateForms();
+                renderAll();
             });
 
-        function switchTab(tabName) {
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-            document.getElementById(tabName).classList.add('active');
-            event.target.classList.add('active');
+        function showNotification(msg, type = 'success') {
+            const el = document.getElementById('notification');
+            el.innerText = msg;
+            el.style.background = type === 'success' ? 'var(--admin-success)' : 'var(--admin-danger)';
+            el.style.display = 'block';
+            setTimeout(() => el.style.display = 'none', 3000);
         }
 
-        function populateForms() {
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        function renderAll() {
             // Journey
-            if (siteData.journey) {
-                document.getElementById('journey-title-input').value = siteData.journey.title;
-                document.getElementById('journey-content-input').value = siteData.journey.content;
-            }
+            document.getElementById('journey-title-input').value = siteData.journey.title || "";
+            document.getElementById('journey-content-input').value = siteData.journey.content || "";
 
             // Episodes
             const epList = document.getElementById('episodes-list');
             epList.innerHTML = '';
-            if (siteData.episodes) {
-                siteData.episodes.forEach((ep, index) => {
-                    const div = document.createElement('div');
-                    div.className = 'list-item';
-                    div.innerHTML = `
-                        <div style="flex-grow:1; margin-right:20px;">
-                            <label>Title</label>
-                            <input type="text" value="${ep.title}" onchange="updateEpisode(${index}, 'title', this.value)" style="margin-bottom:10px;">
-                             <label>Description</label>
-                            <input type="text" value="${ep.description}" onchange="updateEpisode(${index}, 'description', this.value)" style="margin-bottom:10px;">
-                             <label>Video URL (Embed)</label>
-                            <input type="text" value="${ep.videoUrl}" onchange="updateEpisode(${index}, 'videoUrl', this.value)">
-                        </div>
-                        <button class="btn-delete" onclick="deleteEpisode(${index})">Delete</button>
-                    `;
-                    epList.appendChild(div);
-                });
-            }
+            siteData.episodes.forEach((ep, i) => {
+                const div = document.createElement('div');
+                div.className = 'item-row';
+                div.innerHTML = `
+                    <div class="item-info">
+                        <h4>${ep.title}</h4>
+                        <p>${ep.videoUrl}</p>
+                    </div>
+                    <div class="item-actions">
+                        <button class="btn btn-outline btn-sm" onclick="openEpisodeModal(${i})">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-danger btn-sm" onclick="deleteEpisode(${i})">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                `;
+                epList.appendChild(div);
+            });
 
             // Blog
             const blogList = document.getElementById('blog-list');
             blogList.innerHTML = '';
-            if (siteData.blog) {
-                siteData.blog.forEach((post, index) => {
-                    const div = document.createElement('div');
-                    div.className = 'list-item';
-                    div.innerHTML = `
-                        <div style="flex-grow:1; margin-right:20px;">
-                            <label>Title</label>
-                            <input type="text" value="${post.title}" onchange="updateBlog(${index}, 'title', this.value)" style="margin-bottom:10px;">
-                             <label>Date</label>
-                            <input type="text" value="${post.date}" onchange="updateBlog(${index}, 'date', this.value)" style="margin-bottom:10px;">
-                             <label>Summary</label>
-                            <input type="text" value="${post.summary}" onchange="updateBlog(${index}, 'summary', this.value)">
-                        </div>
-                        <button class="btn-delete" onclick="deleteBlog(${index})">Delete</button>
-                    `;
-                    blogList.appendChild(div);
-                });
+            siteData.blog.forEach((post, i) => {
+                const div = document.createElement('div');
+                div.className = 'item-row';
+                div.innerHTML = `
+                    <div class="item-info">
+                        <h4>${post.title}</h4>
+                        <p>${post.date}</p>
+                    </div>
+                    <div class="item-actions">
+                        <button class="btn btn-outline btn-sm" onclick="openBlogModal(${i})">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-danger btn-sm" onclick="deleteBlog(${i})">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                `;
+                blogList.appendChild(div);
+            });
+        }
+
+        // Journey Actions
+        function saveJourney() {
+            siteData.journey.title = document.getElementById('journey-title-input').value;
+            siteData.journey.content = document.getElementById('journey-content-input').value;
+            persist();
+        }
+
+        // Episode Actions
+        function openEpisodeModal(index = -1) {
+            const modal = document.getElementById('episode-modal');
+            document.getElementById('episode-index').value = index;
+            if (index > -1) {
+                const ep = siteData.episodes[index];
+                document.getElementById('ep-title').value = ep.title;
+                document.getElementById('ep-url').value = ep.videoUrl;
+                document.getElementById('ep-desc').value = ep.description;
+                document.getElementById('episode-modal-title').innerText = "Edit Episode";
+            } else {
+                document.getElementById('ep-title').value = "";
+                document.getElementById('ep-url').value = "";
+                document.getElementById('ep-desc').value = "";
+                document.getElementById('episode-modal-title').innerText = "Add New Episode";
             }
+            modal.style.display = 'flex';
         }
 
-        // --- Data Update Helpers ---
+        function saveEpisode() {
+            const index = document.getElementById('episode-index').value;
+            const ep = {
+                id: index > -1 ? siteData.episodes[index].id : Date.now(),
+                title: document.getElementById('ep-title').value,
+                videoUrl: document.getElementById('ep-url').value,
+                description: document.getElementById('ep-desc').value
+            };
 
-        // Journey
-        document.getElementById('journey-title-input').addEventListener('input', (e) => siteData.journey.title = e.target.value);
-        document.getElementById('journey-content-input').addEventListener('input', (e) => siteData.journey.content = e.target.value);
+            if (index > -1) siteData.episodes[index] = ep;
+            else siteData.episodes.push(ep);
 
-        // Episodes
-        function updateEpisode(index, field, value) {
-            siteData.episodes[index][field] = value;
+            closeModals();
+            renderAll();
+            persist();
         }
+
         function deleteEpisode(index) {
-            if (confirm('Are you sure?')) {
+            if (confirm('Delete this episode?')) {
                 siteData.episodes.splice(index, 1);
-                populateForms(); // Re-render
+                renderAll();
+                persist();
             }
         }
-        function createNewEpisode() {
-            siteData.episodes.push({ id: siteData.episodes.length + 1, title: "New Episode", description: "Desc", videoUrl: "" });
-            populateForms();
+
+        // Blog Actions
+        function openBlogModal(index = -1) {
+            const modal = document.getElementById('blog-modal');
+            document.getElementById('blog-index').value = index;
+            if (index > -1) {
+                const post = siteData.blog[index];
+                document.getElementById('blog-title').value = post.title;
+                document.getElementById('blog-date').value = post.date;
+                document.getElementById('blog-summary').value = post.summary;
+                document.getElementById('blog-modal-title').innerText = "Edit Blog Post";
+            } else {
+                document.getElementById('blog-title').value = "";
+                document.getElementById('blog-date').value = new Date().toLocaleDateString('en-US', { month: 'long', day: '2-digit', year: 'numeric' }).toUpperCase();
+                document.getElementById('blog-summary').value = "";
+                document.getElementById('blog-modal-title').innerText = "Add New Blog Post";
+            }
+            modal.style.display = 'flex';
         }
 
-        // Blog
-        function updateBlog(index, field, value) {
-            siteData.blog[index][field] = value;
+        function saveBlog() {
+            const index = document.getElementById('blog-index').value;
+            const post = {
+                id: index > -1 ? siteData.blog[index].id : Date.now(),
+                title: document.getElementById('blog-title').value,
+                date: document.getElementById('blog-date').value,
+                summary: document.getElementById('blog-summary').value
+            };
+
+            if (index > -1) siteData.blog[index] = post;
+            else siteData.blog.push(post);
+
+            closeModals();
+            renderAll();
+            persist();
         }
+
         function deleteBlog(index) {
-            if (confirm('Are you sure?')) {
+            if (confirm('Delete this blog post?')) {
                 siteData.blog.splice(index, 1);
-                populateForms(); // Re-render
+                renderAll();
+                persist();
             }
         }
-        function createNewBlog() {
-            siteData.blog.push({ id: siteData.blog.length + 1, date: "DATE", title: "New Post", summary: "Summary" });
-            populateForms();
+
+        function closeModals() {
+            document.querySelectorAll('.modal').forEach(m => m.style.display = 'none');
         }
 
-
-        // Save to Server
-        function saveContent() {
+        function persist() {
             fetch('/api/content', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -284,19 +571,10 @@
             })
                 .then(res => res.json())
                 .then(data => {
-                    const msg = document.getElementById('msg');
-                    msg.style.display = 'block';
-                    msg.style.background = '#d4edda';
-                    msg.style.color = '#155724';
-                    msg.innerText = 'Content Saved Successfully!';
-                    setTimeout(() => msg.style.display = 'none', 3000);
+                    showNotification("Success! Data saved to server.");
                 })
                 .catch(err => {
-                    const msg = document.getElementById('msg');
-                    msg.style.display = 'block';
-                    msg.style.background = '#f8d7da';
-                    msg.style.color = '#721c24';
-                    msg.innerText = 'Error Saving Content';
+                    showNotification("Error saving data.", "danger");
                 });
         }
     </script>

@@ -95,28 +95,34 @@
         fetch('/api/content')
             .then(response => response.json())
             .then(data => {
-                if (data.episodes) {
-                    const container = document.getElementById('episodes-container');
+                const container = document.getElementById('episodes-container');
+                if (data.episodes && data.episodes.length > 0) {
                     container.innerHTML = ''; // Clear loading text
 
-                    data.episodes.forEach(episode => {
+                    data.episodes.forEach((episode, index) => {
+                        const displayIndex = index + 1;
                         const card = document.createElement('div');
                         card.className = 'card';
                         card.innerHTML = `
                             <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-bottom: 1px solid var(--border-color);">
-                                 <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="${episode.videoUrl}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                 <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="${episode.videoUrl}" title="${episode.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             <div class="card-content">
-                                <span style="font-size: 0.8rem; color: var(--accent-color); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Episode ${episode.id < 10 ? '0' + episode.id : episode.id}</span>
+                                <span style="font-size: 0.8rem; color: var(--accent-color); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Episode ${displayIndex < 10 ? '0' + displayIndex : displayIndex}</span>
                                 <h3 style="margin: 12px 0 16px;">${episode.title}</h3>
                                 <p style="color: var(--text-muted); font-size: 0.95rem;">${episode.description}</p>
                             </div>
                         `;
                         container.appendChild(card);
                     });
+                } else {
+                    container.innerHTML = '<p>No episodes found. Stay tuned!</p>';
                 }
             })
-            .catch(error => console.error('Error loading episodes:', error));
+            .catch(error => {
+                console.error('Error loading episodes:', error);
+                document.getElementById('episodes-container').innerHTML = '<p>Error loading episodes. Please try again later.</p>';
+            });
     </script>
 </body>
 

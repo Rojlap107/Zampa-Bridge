@@ -5,22 +5,20 @@ const path = require('path');
 
 const app = express();
 const PORT = 3000;
-const DATA_FILE = path.join(__dirname, 'data', 'content.json');
+const DATA_DIR = path.join(__dirname, 'data');
+const DATA_FILE = path.join(DATA_DIR, 'content.json');
 
 // Middleware
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, 'public')));
 
-// Specific route for uploaded images if they are outside public (adjust if needed)
-// Assuming images are inside 'public/images' now, if not we need to map it.
-// Based on file structure, images seem to be in root 'images'.
-// Let's map root directories to serve static files correctly.
-app.use('/images', express.static(path.join(__dirname, 'public', 'images')));
-app.use(express.static(path.join(__dirname))); // Serve root files like style.css
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
+// Also serve from root for files like style.css if they are not in public (though they should be)
+app.use(express.static(path.join(__dirname)));
 
 // Ensure data directory exists
-if (!fs.existsSync(path.join(__dirname, 'data'))) {
-    fs.mkdirSync(path.join(__dirname, 'data'));
+if (!fs.existsSync(DATA_DIR)) {
+    fs.mkdirSync(DATA_DIR);
 }
 
 // Initialize content.json if it doesn't exist
@@ -28,16 +26,13 @@ if (!fs.existsSync(DATA_FILE)) {
     const initialData = {
         journey: {
             title: "Our Journey",
-            content: "Welcome to our story. This is placeholder text that you can edit from the Admin Panel."
+            content: "<p>Welcome to our story. This is placeholder text that you can edit from the Admin Panel.</p>"
         },
         episodes: [
-            { id: 1, title: "Episode 01", description: "Description for episode 1", videoUrl: "https://www.youtube.com/embed/placeholder1" },
-            { id: 2, title: "Episode 02", description: "Description for episode 2", videoUrl: "https://www.youtube.com/embed/placeholder2" },
-            { id: 3, title: "Episode 03", description: "Description for episode 3", videoUrl: "https://www.youtube.com/embed/placeholder3" }
+            { id: 1, title: "Episode 01", description: "Honest conversations about life, culture, and navigating the in-between.", videoUrl: "https://www.youtube.com/embed/placeholder1" }
         ],
         blog: [
-            { id: 1, date: "OCTOBER 24, 2024", title: "Finding Balance", summary: "Blog summary..." },
-            { id: 2, date: "OCTOBER 10, 2024", title: "Community", summary: "Blog summary..." }
+            { id: 1, date: "OCTOBER 24, 2024", title: "Finding Balance", summary: "Reflections on walking the path between two worlds..." }
         ]
     };
     fs.writeFileSync(DATA_FILE, JSON.stringify(initialData, null, 2));
@@ -63,12 +58,16 @@ app.post('/api/content', (req, res) => {
     });
 });
 
-// Admin Route (Simple protection could be added here, currently open)
+// Admin Route
 app.get('/admin', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'admin.html'));
 });
 
 app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
-    console.log(`Admin panel at http://localhost:${PORT}/admin`);
+    console.log(`\n🚀 Zampa Bridge CMS Running!`);
+    console.log(`-----------------------------`);
+    console.log(`Public Site: http://localhost:${PORT}`);
+    console.log(`Admin Panel: http://localhost:${PORT}/admin`);
+    console.log(`-----------------------------\n`);
 });
+
