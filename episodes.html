@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Episodes | Zampa Bridge</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container flex justify-between items-center">
+            <a href="index.html" class="logo">
+                <img src="images/Logo without BG.png" alt="Zampa Bridge" style="height: 60px; width: auto;">
+            </a>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="journey.html">Journey</a></li>
+                    <li><a href="episodes.html" class="active">Episodes</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section"
+            style="padding-top: 180px; padding-bottom: 60px; text-align: center; background-color: var(--bg-color);">
+            <div class="container">
+                <h1 style="font-size: 3.5rem; color: var(--text-main); margin-bottom: 20px;">Episodes</h1>
+                <p
+                    style="max-width: 700px; margin: 0 auto; font-size: 1.15rem; color: var(--text-muted); font-family: var(--font-heading);">
+                    Honest conversations about life, culture, and navigating the in-between.
+                </p>
+            </div>
+        </section>
+
+        <!-- Episodes Grid -->
+        <section class="section">
+            <div class="container">
+                <div id="episodes-container"
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px;">
+                    <!-- Loading State -->
+                    <p>Loading episodes...</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <a href="index.html" class="logo">
+                        <img src="images/Logo without BG.png" alt="Zampa Bridge"
+                            style="height: 50px; width: auto; opacity: 0.9;">
+                    </a>
+                    <p style="opacity: 0.7; font-size: 0.95rem; line-height: 1.6; max-width: 300px; margin-top: 20px;">
+                        A digital sanctuary bridging tradition and modernity. <br><br>Made with 🤍 for the Himalayas.
+                    </p>
+                </div>
+                <div>
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="journey.html">Journey</a></li>
+                        <li><a href="episodes.html">Episodes</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="contact.html">Send a Message</a></li>
+                        <li><a href="#">Instagram @zampabridge</a></li>
+                        <li><a href="#">YouTube Channel</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Zampa Bridge. Inspired by the Himalayas.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // CMS Content Fetch for Episodes
+        fetch('/api/content')
+            .then(response => response.json())
+            .then(data => {
+                if (data.episodes) {
+                    const container = document.getElementById('episodes-container');
+                    container.innerHTML = ''; // Clear loading text
+
+                    data.episodes.forEach(episode => {
+                        const card = document.createElement('div');
+                        card.className = 'card';
+                        card.innerHTML = `
+                            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-bottom: 1px solid var(--border-color);">
+                                 <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="${episode.videoUrl}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-content">
+                                <span style="font-size: 0.8rem; color: var(--accent-color); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Episode ${episode.id < 10 ? '0' + episode.id : episode.id}</span>
+                                <h3 style="margin: 12px 0 16px;">${episode.title}</h3>
+                                <p style="color: var(--text-muted); font-size: 0.95rem;">${episode.description}</p>
+                            </div>
+                        `;
+                        container.appendChild(card);
+                    });
+                }
+            })
+            .catch(error => console.error('Error loading episodes:', error));
+    </script>
+</body>
+
+</html>

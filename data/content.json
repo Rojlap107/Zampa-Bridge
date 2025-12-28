@@ -1,0 +1,40 @@
+{
+  "journey": {
+    "title": "Our Journey",
+    "content": "Welcome to our story. This is placeholder text that you can edit from the Admin Panel."
+  },
+  "episodes": [
+    {
+      "id": 1,
+      "title": "Episode 01",
+      "description": "Description for episode 1",
+      "videoUrl": "https://www.youtube.com/embed/placeholder1"
+    },
+    {
+      "id": 2,
+      "title": "Episode 02",
+      "description": "Description for episode 2",
+      "videoUrl": "https://www.youtube.com/embed/placeholder2"
+    },
+    {
+      "id": 3,
+      "title": "Episode 03",
+      "description": "Description for episode 3",
+      "videoUrl": "https://www.youtube.com/embed/placeholder3"
+    }
+  ],
+  "blog": [
+    {
+      "id": 1,
+      "date": "OCTOBER 24, 2024",
+      "title": "Finding Balance",
+      "summary": "Blog summary..."
+    },
+    {
+      "id": 2,
+      "date": "OCTOBER 10, 2024",
+      "title": "Community",
+      "summary": "Blog summary..."
+    }
+  ]
+}

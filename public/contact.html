@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Zampa Bridge</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container flex justify-between items-center">
+            <a href="index.html" class="logo">
+                <img src="images/Logo without BG.png" alt="Zampa Bridge" style="height: 60px; width: auto;">
+            </a>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="journey.html">Journey</a></li>
+                    <li><a href="episodes.html">Episodes</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section"
+            style="padding-top: 180px; padding-bottom: 60px; text-align: center; background-color: var(--bg-color);">
+            <div class="container text-center">
+                <h1 style="font-size: 3.5rem; color: var(--text-main); margin-bottom: 20px;">Get in Touch</h1>
+                <p
+                    style="max-width: 700px; margin: 0 auto; font-size: 1.15rem; color: var(--text-muted); font-family: var(--font-heading);">
+                    Have a story to share or a question to ask? We’d love to hear from you.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container" style="max-width: 800px;">
+                <div
+                    style="background: white; padding: 60px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+                    <form action="#" method="POST">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px;">
+                            <div style="display: flex; flex-direction: column; gap: 10px;">
+                                <label for="name"
+                                    style="font-weight: 700; font-size: 0.9rem; text-transform: uppercase;">Name</label>
+                                <input type="text" id="name" name="name"
+                                    style="padding: 14px; border: 1px solid #ddd; border-radius: 4px; font-family: var(--font-body); outline: none; transition: 0.3s;"
+                                    onfocus="this.style.borderColor='var(--primary-brand)'"
+                                    onblur="this.style.borderColor='#ddd'" required>
+                            </div>
+                            <div style="display: flex; flex-direction: column; gap: 10px;">
+                                <label for="email"
+                                    style="font-weight: 700; font-size: 0.9rem; text-transform: uppercase;">Email</label>
+                                <input type="email" id="email" name="email"
+                                    style="padding: 14px; border: 1px solid #ddd; border-radius: 4px; font-family: var(--font-body); outline: none; transition: 0.3s;"
+                                    onfocus="this.style.borderColor='var(--primary-brand)'"
+                                    onblur="this.style.borderColor='#ddd'" required>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 40px;">
+                            <label for="message"
+                                style="font-weight: 700; font-size: 0.9rem; text-transform: uppercase;">Message</label>
+                            <textarea id="message" name="message" rows="6"
+                                style="padding: 14px; border: 1px solid #ddd; border-radius: 4px; font-family: var(--font-body); outline: none; transition: 0.3s;"
+                                onfocus="this.style.borderColor='var(--primary-brand)'"
+                                onblur="this.style.borderColor='#ddd'" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-primary" style="width: 100%; border: none;">Send
+                            Message</button>
+                    </form>
+                </div>
+
+                <div style="text-align: center; margin-top: 80px;">
+                    <h3 style="margin-bottom: 30px;">Connect on Social Media</h3>
+                    <div class="flex gap-4" style="justify-content: center;">
+                        <a href="#"
+                            style="background: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--text-main); border: 1px solid var(--border-color); font-weight:700; font-size:0.9rem;"
+                            class="social-icon">
+                            IG
+                        </a>
+                        <a href="#"
+                            style="background: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--text-main); border: 1px solid var(--border-color); font-weight:700; font-size:0.9rem;"
+                            class="social-icon">
+                            YT
+                        </a>
+                        <a href="#"
+                            style="background: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--text-main); border: 1px solid var(--border-color); font-weight:700; font-size:0.9rem;"
+                            class="social-icon">
+                            LI
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <a href="index.html" class="logo">
+                        <img src="images/Logo without BG.png" alt="Zampa Bridge"
+                            style="height: 50px; width: auto; opacity: 0.9;">
+                    </a>
+                    <p style="opacity: 0.7; font-size: 0.95rem; line-height: 1.6; max-width: 300px; margin-top: 20px;">
+                        A digital sanctuary bridging tradition and modernity. <br><br>Made with 🤍 for the Himalayas.
+                    </p>
+                </div>
+                <div>
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="journey.html">Journey</a></li>
+                        <li><a href="episodes.html">Episodes</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="contact.html">Send a Message</a></li>
+                        <li><a href="#">Instagram @zampabridge</a></li>
+                        <li><a href="#">YouTube Channel</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Zampa Bridge. Inspired by the Himalayas.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
