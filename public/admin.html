@@ -405,6 +405,11 @@
                 <label>Summary</label>
                 <textarea id="blog-summary" style="height: 100px;"></textarea>
             </div>
+            <div class="form-group">
+                <label>Content</label>
+                <textarea id="blog-content" style="height: 200px;"
+                    placeholder="Write your full blog post here..."></textarea>
+            </div>
             <div class="modal-footer">
                 <button class="btn btn-outline" onclick="closeModals()">Cancel</button>
                 <button class="btn btn-primary" onclick="saveBlog()">Save Post</button>
@@ -662,11 +667,13 @@
                 document.getElementById('blog-title').value = post.title;
                 document.getElementById('blog-date').value = post.date;
                 document.getElementById('blog-summary').value = post.summary;
+                document.getElementById('blog-content').value = post.content || "";
                 document.getElementById('blog-modal-title').innerText = "Edit Blog Post";
             } else {
                 document.getElementById('blog-title').value = "";
                 document.getElementById('blog-date').value = new Date().toLocaleDateString('en-US', { month: 'long', day: '2-digit', year: 'numeric' }).toUpperCase();
                 document.getElementById('blog-summary').value = "";
+                document.getElementById('blog-content').value = "";
                 document.getElementById('blog-modal-title').innerText = "Add New Blog Post";
             }
             modal.style.display = 'flex';
@@ -678,7 +685,8 @@
                 id: index > -1 ? siteData.blog[index].id : Date.now(),
                 title: document.getElementById('blog-title').value,
                 date: document.getElementById('blog-date').value,
-                summary: document.getElementById('blog-summary').value
+                summary: document.getElementById('blog-summary').value,
+                content: document.getElementById('blog-content').value
             };
 
             if (index > -1) siteData.blog[index] = post;
