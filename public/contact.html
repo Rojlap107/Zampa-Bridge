@@ -45,8 +45,8 @@
         <section class="section">
             <div class="container" style="max-width: 800px;">
                 <div
-                    style="background: white; padding: 60px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
-                    <form action="#" method="POST">
+                    style="background: white; padding: 60px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); position: relative;">
+                    <form id="contact-form">
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px;">
                             <div style="display: flex; flex-direction: column; gap: 10px;">
                                 <label for="name"
@@ -75,10 +75,64 @@
                                 onblur="this.style.borderColor='#ddd'" required></textarea>
                         </div>
 
-                        <button type="submit" class="btn-primary" style="width: 100%; border: none;">Send
-                            Message</button>
+                        <button type="submit" id="submit-btn" class="btn-primary"
+                            style="width: 100%; border: none; padding: 18px; font-size: 1rem; cursor: pointer; transition: 0.3s;">
+                            Send Message
+                        </button>
                     </form>
+
+                    <div id="form-status"
+                        style="margin-top: 25px; padding: 15px; border-radius: 4px; display: none; text-align: center; font-weight: 600;">
+                    </div>
                 </div>
+
+                <script>
+                    document.getElementById('contact-form').addEventListener('submit', async (e) => {
+                        e.preventDefault();
+                        const btn = document.getElementById('submit-btn');
+                        const status = document.getElementById('form-status');
+                        const originalText = btn.innerText;
+
+                        // Loading State
+                        btn.disabled = true;
+                        btn.innerText = "Sending...";
+                        status.style.display = "none";
+
+                        const formData = {
+                            name: document.getElementById('name').value,
+                            email: document.getElementById('email').value,
+                            message: document.getElementById('message').value
+                        };
+
+                        try {
+                            const response = await fetch('/api/contact', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify(formData)
+                            });
+
+                            const result = await response.json();
+
+                            if (response.ok) {
+                                status.innerText = result.message;
+                                status.style.backgroundColor = "#e7f3ef";
+                                status.style.color = "#2d5a4c";
+                                status.style.display = "block";
+                                document.getElementById('contact-form').reset();
+                            } else {
+                                throw new Error(result.error || "Failed to send message");
+                            }
+                        } catch (error) {
+                            status.innerText = error.message;
+                            status.style.backgroundColor = "#fdecec";
+                            status.style.color = "#9b2c2c";
+                            status.style.display = "block";
+                        } finally {
+                            btn.disabled = false;
+                            btn.innerText = originalText;
+                        }
+                    });
+                </script>
 
                 <div style="text-align: center; margin-top: 80px;">
                     <h3 style="margin-bottom: 30px;">Connect on Social Media</h3>

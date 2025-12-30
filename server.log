@@ -1,0 +1,8 @@
+[dotenv@17.2.3] injecting env (3) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+
+🚀 Zampa Bridge CMS Running!
+-----------------------------
+Public Site: http://localhost:3000
+Admin Panel: http://localhost:3000/admin
+-----------------------------
+

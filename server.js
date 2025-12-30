@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 const fs = require('fs');
 const path = require('path');
 const multer = require('multer');
+const nodemailer = require('nodemailer');
+require('dotenv').config();
 
 const app = express();
 const PORT = 3000;
@@ -83,6 +85,40 @@ app.post('/api/upload', upload.single('image'), (req, res) => {
     }
     const relativePath = 'images/uploads/' + req.file.filename;
     res.json({ imageUrl: relativePath });
+});
+
+// Contact Form Route
+app.post('/api/contact', async (req, res) => {
+    const { name, email, message } = req.body;
+
+    if (!name || !email || !message) {
+        return res.status(400).json({ error: 'All fields are required' });
+    }
+
+    // Configure Transporter
+    const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: process.env.SMTP_USER,
+            pass: process.env.SMTP_PASS
+        }
+    });
+
+    const mailOptions = {
+        from: email,
+        to: process.env.CONTACT_RECEIVER || 'chemetenzin99@gmail.com',
+        subject: `New Message from ${name} via Zampa Bridge`,
+        text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+        replyTo: email
+    };
+
+    try {
+        await transporter.sendMail(mailOptions);
+        res.json({ message: 'Message sent successfully! We will get back to you soon.' });
+    } catch (error) {
+        console.error('Email Error:', error);
+        res.status(500).json({ error: 'Failed to send message. Please try again later.' });
+    }
 });
 
 
