@@ -29,76 +29,25 @@
         </div>
     </header>
 
-    <main>
-        <!-- Header Image Section -->
-        <section class="section" style="padding-top: 180px; padding-bottom: 60px; text-align: center;">
+    <main id="journey-main">
+        <!-- Header Section -->
+        <section class="section" style="padding-top: 180px; padding-bottom: 40px; text-align: center;">
             <div class="container">
-                <h1 style="font-size: 3.5rem; color: var(--text-main); margin-bottom: 20px;">Our Journey</h1>
+                <span
+                    style="color: var(--primary-brand); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; display: block; margin-bottom: 20px;">OUR
+                    STORY</span>
+                <h1 style="font-size: 3.8rem; margin-bottom: 24px;">The Journey</h1>
                 <p
-                    style="max-width: 700px; margin: 0 auto; font-size: 1.15rem; color: var(--text-muted); font-family: var(--font-heading);">
-                    Walking the path between two worlds, guided by the wisdom of the mountains.
+                    style="max-width: 650px; margin: 0 auto; font-size: 1.2rem; color: var(--text-muted); line-height: 1.6;">
+                    A collection of moments, milestones, and memories from the path we tread.
                 </p>
             </div>
         </section>
 
-        <!-- Purpose & Vision -->
-        <section class="section" style="background-color: white;">
-            <div class="container">
-                <div class="flex items-center gap-4" style="flex-direction: row; flex-wrap: wrap;">
-                    <div style="flex: 1; min-width: 350px;">
-                        <img src="images/modern_himalayan_bridge_concept_1766919419939.png" alt="Bridge Concept Art"
-                            style="width: 100%; border-radius: var(--radius-sm); box-shadow: 0 20px 40px rgba(0,0,0,0.08);">
-                    </div>
-                    <div style="flex: 1; min-width: 350px; padding: 40px;">
-                        <span
-                            style="color: var(--primary-brand); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 12px;">The
-                            Vision</span>
-                        <h2 style="margin-bottom: 24px;">Purpose & Vision</h2>
-
-                        <div
-                            style="padding: 20px; background-color: #fff9f0; border-left: 4px solid var(--primary-brand); margin-bottom: 24px;">
-                            <b style="color: var(--accent-color);">[Insert Content from Journey Write Up.docx here]</b>
-                        </div>
-
-                        <p style="margin-bottom: 20px; color: var(--text-muted);">
-                            Zampa Bridge was born out of a necessity to find common ground. Living between two cultures
-                            often feels like walking a tightrope. We aim to turn that tightrope into a bridge—a solid
-                            foundation where young adults can embrace their dual identities without conflict.
-                        </p>
-                        <p style="color: var(--text-muted);">
-                            Our vision is a world where heritage is not a burden but a source of strength, enabling us
-                            to navigate the modern world with confidence and grace.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experiences & Inspirations -->
-        <section class="section">
-            <div class="container">
-                <div class="flex items-center gap-4" style="flex-direction: row-reverse; flex-wrap: wrap;">
-                    <div style="flex: 1; min-width: 350px;">
-                        <img src="images/ladakh_landscape_hero_1766919402431.png" alt="Ladakh Mountains"
-                            style="width: 100%; border-radius: var(--radius-sm); box-shadow: 0 20px 40px rgba(0,0,0,0.08);">
-                    </div>
-                    <div style="flex: 1; min-width: 350px; padding: 40px;">
-                        <span
-                            style="color: var(--primary-brand); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 12px;">The
-                            Roots</span>
-                        <h2 style="margin-bottom: 24px;">Inspirations from Ladakh</h2>
-
-                        <div>
-                            <h2 id="journey-title"
-                                style="margin-bottom: 24px; font-size: 2.2rem; color: var(--primary-brand);">The Story
-                            </h2>
-                            <div id="journey-content"
-                                style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8;">
-                                <p>Loading content...</p>
-                            </div>
-                        </div>
-                    </div>
-        </section>
+        <!-- Timeline Container -->
+        <div id="journey-timeline" class="journey-timeline">
+            <!-- Journey cards will be loaded here -->
+        </div>
     </main>
 
     <footer>
@@ -140,17 +89,45 @@
         fetch('/api/content')
             .then(response => response.json())
             .then(data => {
-                if (data.journey) {
-                    const titleEl = document.getElementById('journey-title');
-                    const contentEl = document.getElementById('journey-content');
+                if (Array.isArray(data.journey)) {
+                    const timeline = document.getElementById('journey-timeline');
+                    timeline.innerHTML = '';
 
-                    if (titleEl && data.journey.title) titleEl.innerText = data.journey.title;
-                    if (contentEl && data.journey.content) contentEl.innerHTML = data.journey.content;
+                    // Sort by timestamp newest first
+                    const sortedPosts = data.journey.sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
+
+                    sortedPosts.forEach((post, index) => {
+                        const card = document.createElement('div');
+                        card.className = 'journey-card';
+                        card.style.opacity = "0";
+                        card.style.transform = "translateX(50px)";
+                        card.style.transition = "all 0.8s ease-out";
+
+                        card.innerHTML = `
+                            <div class="journey-card-image">
+                                ${post.imageUrl ? `<img src="${post.imageUrl}" alt="${post.title}">` : ''}
+                            </div>
+                            <div class="journey-card-info">
+                                <span class="label">Update</span>
+                                <h3>${post.title}</h3>
+                                <div class="content">
+                                    ${post.content}
+                                </div>
+                            </div>
+                        `;
+
+                        timeline.appendChild(card);
+
+                        // Stagger the animation
+                        setTimeout(() => {
+                            card.style.opacity = "1";
+                            card.style.transform = "translateX(0)";
+                        }, 150 * (index + 1));
+                    });
                 }
             })
             .catch(error => {
                 console.error('Error loading content:', error);
-                document.getElementById('journey-content').innerHTML = '<p>Error loading story content. Please try again later.</p>';
             });
     </script>
 </body>

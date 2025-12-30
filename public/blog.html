@@ -43,7 +43,7 @@
         </section>
 
         <!-- Blog List -->
-        <section class="section">
+        <section class="section" style="background-color: var(--bg-color);">
             <div class="container" style="max-width: 900px;">
                 <div id="blog-container">
                     <p>Loading posts...</p>
@@ -52,7 +52,7 @@
         </section>
     </main>
 
-    <footer>
+    <footer style="background-color: #2b241f;">
         <div class="container">
             <div class="footer-content">
                 <div>
@@ -100,12 +100,9 @@
 
                     data.blog.forEach(post => {
                         const article = document.createElement('article');
-                        article.style.background = 'var(--card-bg)';
-                        article.style.padding = '40px';
-                        article.style.borderRadius = 'var(--radius-sm)';
-                        article.style.border = '1px solid var(--border-color)';
-                        article.style.marginBottom = '40px';
-                        article.style.boxShadow = '0 4px 6px rgba(0,0,0,0.02)';
+                        article.className = 'card';
+                        article.style.padding = '50px';
+                        article.style.marginBottom = '50px';
 
                         article.innerHTML = `
                             <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; font-weight: 700; letter-spacing: 0.5px;">${post.date}</div>

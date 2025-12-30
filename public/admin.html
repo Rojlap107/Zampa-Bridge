@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --admin-bg: #f8f9fa;
+            --admin-bg: #fdfaf7;
             --admin-card: #ffffff;
-            --admin-primary: #1a1a1a;
-            --admin-accent: #c49a6c;
-            --admin-text: #333;
-            --admin-muted: #666;
-            --admin-border: #e0e0e0;
+            --admin-primary: #3d342d;
+            --admin-accent: #a67c52;
+            --admin-text: #3d342d;
+            --admin-muted: #8c7e74;
+            --admin-border: #eee4dc;
             --admin-success: #28a745;
             --admin-danger: #dc3545;
         }
@@ -283,20 +283,15 @@
         <!-- Journey Tab -->
         <div id="journey" class="tab-content active">
             <div class="header-actions">
-                <h2>Edit Journey Content</h2>
-                <button class="btn btn-success" onclick="saveJourney()">
-                    <i class="fas fa-save"></i> Save Changes
+                <h2>Manage Journey Timeline</h2>
+                <button class="btn btn-primary" onclick="openJourneyModal()">
+                    <i class="fas fa-plus"></i> Add New Journey Post
                 </button>
             </div>
 
             <div class="admin-card">
-                <div class="form-group">
-                    <label>Page Title</label>
-                    <input type="text" id="journey-title-input" placeholder="Enter title...">
-                </div>
-                <div class="form-group">
-                    <label>Journey Story (HTML recommended for paragraphs)</label>
-                    <textarea id="journey-content-input" placeholder="Tell your story..."></textarea>
+                <div id="journey-list" class="item-list">
+                    <!-- Journey posts will be rendered here -->
                 </div>
             </div>
         </div>
@@ -333,6 +328,41 @@
             </div>
         </div>
     </main>
+
+    <!-- Journey Modal -->
+    <div id="journey-modal" class="modal">
+        <div class="modal-content">
+            <h3 id="journey-modal-title">Add New Journey Post</h3>
+            <input type="hidden" id="journey-index">
+            <div class="form-group">
+                <label>Post Title</label>
+                <input type="text" id="journey-modal-title-input" placeholder="Title of this update...">
+            </div>
+            <div class="form-group">
+                <label>Journey Image</label>
+                <div style="display: flex; gap: 20px; align-items: flex-start; margin-bottom: 20px;">
+                    <img id="journey-modal-image-preview" src="" alt="Preview"
+                        style="max-width: 200px; border-radius: 8px; display: none; border: 1px solid var(--admin-border);">
+                    <div>
+                        <input type="file" id="journey-modal-image-input" accept="image/*" style="display: none;"
+                            onchange="handleJourneyImagePreview(event)">
+                        <button class="btn btn-outline"
+                            onclick="document.getElementById('journey-modal-image-input').click()">
+                            <i class="fas fa-upload"></i> Choose Image
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Journey Story (HTML recommended)</label>
+                <textarea id="journey-modal-content-input" placeholder="Tell this part of the journey..."></textarea>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModals()">Cancel</button>
+                <button id="journey-save-btn" class="btn btn-primary" onclick="saveJourneyPost()">Save Post</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Episode Modal -->
     <div id="episode-modal" class="modal">
@@ -384,7 +414,7 @@
 
     <script>
         let siteData = {
-            journey: { title: "", content: "" },
+            journey: [],
             episodes: [],
             blog: []
         };
@@ -394,6 +424,7 @@
             .then(res => res.json())
             .then(data => {
                 siteData = data;
+                if (!Array.isArray(siteData.journey)) siteData.journey = [];
                 renderAll();
             });
 
@@ -414,8 +445,27 @@
 
         function renderAll() {
             // Journey
-            document.getElementById('journey-title-input').value = siteData.journey.title || "";
-            document.getElementById('journey-content-input').value = siteData.journey.content || "";
+            const journeyList = document.getElementById('journey-list');
+            journeyList.innerHTML = '';
+            siteData.journey.forEach((post, i) => {
+                const div = document.createElement('div');
+                div.className = 'item-row';
+                div.innerHTML = `
+                    <div class="item-info">
+                        <h4>${post.title}</h4>
+                        <p>${post.imageUrl ? 'Has Image' : 'No Image'}</p>
+                    </div>
+                    <div class="item-actions">
+                        <button class="btn btn-outline btn-sm" onclick="openJourneyModal(${i})">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-danger btn-sm" onclick="deleteJourney(${i})">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                `;
+                journeyList.appendChild(div);
+            });
 
             // Episodes
             const epList = document.getElementById('episodes-list');
@@ -465,10 +515,98 @@
         }
 
         // Journey Actions
-        function saveJourney() {
-            siteData.journey.title = document.getElementById('journey-title-input').value;
-            siteData.journey.content = document.getElementById('journey-content-input').value;
-            persist();
+        function handleJourneyImagePreview(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const preview = document.getElementById('journey-modal-image-preview');
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function openJourneyModal(index = -1) {
+            const modal = document.getElementById('journey-modal');
+            document.getElementById('journey-index').value = index;
+            const preview = document.getElementById('journey-modal-image-preview');
+
+            if (index > -1) {
+                const post = siteData.journey[index];
+                document.getElementById('journey-modal-title-input').value = post.title;
+                document.getElementById('journey-modal-content-input').value = post.content;
+                document.getElementById('journey-modal-title').innerText = "Edit Journey Post";
+                if (post.imageUrl) {
+                    preview.src = post.imageUrl;
+                    preview.style.display = 'block';
+                } else {
+                    preview.style.display = 'none';
+                }
+            } else {
+                document.getElementById('journey-modal-title-input').value = "";
+                document.getElementById('journey-modal-content-input').value = "";
+                document.getElementById('journey-modal-title').innerText = "Add New Journey Post";
+                preview.style.display = 'none';
+            }
+            modal.style.display = 'flex';
+        }
+
+        async function saveJourneyPost() {
+            const btn = document.getElementById('journey-save-btn');
+            const originalHtml = btn.innerHTML;
+            const index = document.getElementById('journey-index').value;
+
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving...';
+
+            let imageUrl = index > -1 ? siteData.journey[index].imageUrl : "";
+            const fileInput = document.getElementById('journey-modal-image-input');
+            const file = fileInput.files[0];
+
+            if (file) {
+                const formData = new FormData();
+                formData.append('image', file);
+                try {
+                    const res = await fetch('/api/upload', { method: 'POST', body: formData });
+                    const data = await res.json();
+                    if (data.imageUrl) imageUrl = data.imageUrl;
+                } catch (err) {
+                    console.error('Upload failed:', err);
+                    showNotification("Image upload failed.", "danger");
+                    btn.disabled = false;
+                    btn.innerHTML = originalHtml;
+                    return;
+                }
+            }
+
+            const post = {
+                id: index > -1 ? siteData.journey[index].id : Date.now(),
+                title: document.getElementById('journey-modal-title-input').value,
+                content: document.getElementById('journey-modal-content-input').value,
+                imageUrl: imageUrl,
+                timestamp: index > -1 ? siteData.journey[index].timestamp : Date.now()
+            };
+
+            if (index > -1) siteData.journey[index] = post;
+            else siteData.journey.push(post);
+
+            await persist();
+            closeModals();
+            renderAll();
+
+            btn.disabled = false;
+            btn.innerHTML = originalHtml;
+            fileInput.value = "";
+        }
+
+        function deleteJourney(index) {
+            if (confirm('Delete this journey post?')) {
+                siteData.journey.splice(index, 1);
+                renderAll();
+                persist();
+            }
         }
 
         // Episode Actions

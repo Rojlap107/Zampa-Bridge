@@ -1,38 +1,50 @@
 {
-  "journey": {
-    "title": "We are working in a juniper",
-    "content": "Juniper working schedule was productive!"
-  },
+  "journey": [
+    {
+      "id": 1767072009742,
+      "title": "Exploring Jaipur's Forts",
+      "content": "Amer Fort stands as a testament to the grandeur of the Rajput kings. Its intricate marble work and stunning views of the Maota Lake are truly breathtaking.",
+      "imageUrl": "images/uploads/1767072146162.jpeg",
+      "timestamp": 1767072009742
+    },
+    {
+      "id": 1767072207853,
+      "title": "Delhi Journey",
+      "content": "Delhi, heart of India, beautiful bazaars etc.",
+      "imageUrl": "images/uploads/1767072207842.jpeg",
+      "timestamp": 1767072207853
+    }
+  ],
   "episodes": [
     {
-      "id": 1,
-      "title": "Episode 01",
-      "description": "Description for episode 1",
-      "videoUrl": "https://www.youtube.com/embed/placeholder1"
+      "id": 1767073346639,
+      "title": "India’s Dying Island (Gone by 2030?) Ghoramara, West Bengal",
+      "videoUrl": "https://www.youtube.com/embed/vpPYFnJsJu0",
+      "description": "A look at Ghoramara Island in West Bengal, which is reportedly disappearing and may be submerged by 2030."
     },
     {
-      "id": 2,
-      "title": "Episode 02",
-      "description": "Description for episode 2",
-      "videoUrl": "https://www.youtube.com/embed/placeholder2"
+      "id": 1767073362508,
+      "title": "Why Tibetans Live in Chhattisgarh? The Story of Tibetans in Mainpat",
+      "videoUrl": "https://www.youtube.com/embed/_SCL0C1ri5g",
+      "description": "Exploring the history and lives of the Tibetan community settled in Mainpat, Chhattisgarh."
     },
     {
-      "id": 3,
-      "title": "Episode 03",
-      "description": "Description for episode 3",
-      "videoUrl": "https://www.youtube.com/embed/placeholder3"
+      "id": 1767073374574,
+      "title": "Hidden \"Naxal Island\" in Chhattisgarh| TRUTH or LIE?",
+      "videoUrl": "https://www.youtube.com/embed/4BT6DFco-WE",
+      "description": "An investigation into the mystery of the \"Naxal Island\" in Chhattisgarh to uncover the reality of the area."
     },
     {
-      "id": 1766923697411,
-      "title": "Verified Ep",
-      "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      "description": "Success"
+      "id": 1767073384925,
+      "title": "NO ROAD, NO BRIDGE: India’s Most FORGOTTEN Village| Chhattisgarh Reality",
+      "videoUrl": "https://www.youtube.com/embed/f1YUEOns6_A",
+      "description": "A documentation of the survival struggles in a remote Chhattisgarh village that lacks basic infrastructure like roads and bridges."
     },
     {
-      "id": 1766923837388,
-      "title": "",
-      "videoUrl": "",
-      "description": ""
+      "id": 1767073395523,
+      "title": "Hitchhiking in Red Zone of Chhattisgarh- Villagers Helped me Here",
+      "videoUrl": "https://www.youtube.com/embed/bdRTqgFkXSg",
+      "description": "An account of hitchhiking through the \"Red Zone\" of Chhattisgarh and the unexpected hospitality of the local villagers."
     }
   ],
   "blog": [
@@ -40,19 +52,7 @@
       "id": 1,
       "date": "OCTOBER 24, 2024",
       "title": "Finding Balance",
-      "summary": "Blog summary..."
-    },
-    {
-      "id": 2,
-      "date": "OCTOBER 10, 2024",
-      "title": "Community",
-      "summary": "Blog summary..."
-    },
-    {
-      "id": 1766923730176,
-      "title": "Verified Blog",
-      "date": "TODAY",
-      "summary": "Success"
+      "summary": "Reflections on walking the path between two worlds..."
     }
   ]
 }
