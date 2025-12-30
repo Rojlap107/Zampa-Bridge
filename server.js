@@ -2,11 +2,34 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const path = require('path');
+const multer = require('multer');
 
 const app = express();
 const PORT = 3000;
 const DATA_DIR = path.join(__dirname, 'data');
 const DATA_FILE = path.join(DATA_DIR, 'content.json');
+const UPLOADS_DIR = path.join(__dirname, 'public', 'images', 'uploads');
+
+// Ensure data directory exists
+if (!fs.existsSync(DATA_DIR)) {
+    fs.mkdirSync(DATA_DIR);
+}
+
+// Ensure uploads directory exists
+if (!fs.existsSync(UPLOADS_DIR)) {
+    fs.mkdirSync(UPLOADS_DIR, { recursive: true });
+}
+
+// Multer Configuration
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, UPLOADS_DIR);
+    },
+    filename: (req, file, cb) => {
+        cb(null, Date.now() + path.extname(file.originalname));
+    }
+});
+const upload = multer({ storage: storage });
 
 // Middleware
 app.use(bodyParser.json());
@@ -16,16 +39,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Also serve from root for files like style.css if they are not in public (though they should be)
 app.use(express.static(path.join(__dirname)));
 
-// Ensure data directory exists
-if (!fs.existsSync(DATA_DIR)) {
-    fs.mkdirSync(DATA_DIR);
-}
-
 // Initialize content.json if it doesn't exist
 if (!fs.existsSync(DATA_FILE)) {
     const initialData = {
         journey: {
             title: "Our Journey",
+            imageUrl: "images/modern_himalayan_bridge_concept_1766919419939.png",
             content: "<p>Welcome to our story. This is placeholder text that you can edit from the Admin Panel.</p>"
         },
         episodes: [
@@ -57,6 +76,15 @@ app.post('/api/content', (req, res) => {
         res.json({ message: 'Content saved successfully' });
     });
 });
+
+app.post('/api/upload', upload.single('image'), (req, res) => {
+    if (!req.file) {
+        return res.status(400).json({ error: 'No file uploaded' });
+    }
+    const relativePath = 'images/uploads/' + req.file.filename;
+    res.json({ imageUrl: relativePath });
+});
+
 
 // Admin Route
 app.get('/admin', (req, res) => {
