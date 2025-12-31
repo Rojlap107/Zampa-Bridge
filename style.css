@@ -1,34 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 
 :root {
-  /* Colors - "Cozy Warm" Aesthetic */
-  --bg-color: #fcf9f5;
-  /* Creamy off-white */
-  --text-main: #3d342d;
-  /* Warm Dark Brown */
-  --text-muted: #8c7e74;
-  /* Earthy Taupe */
-  --primary-brand: #a67c52;
-  /* Warm Wood Brown */
-  --accent-color: #e5d3c0;
-  /* Soft Sand */
-  --border-color: #eee4dc;
-  /* Subtle Warm Border */
-  --card-bg: #ffffff;
-  /* Clean White for cards */
+  /* Color Palette - Inspired by Malala.org with Himalayan touches */
+  --bg-color: #ffffff;
+  --bg-secondary: #f8f6f4;
+  --text-main: #1a1a1a;
+  --text-secondary: #4a4a4a;
+  --text-muted: #666666;
+
+  /* Primary Brand Colors */
+  --primary-navy: #111E47;
+  --primary-blue: #2d3e76;
+  --accent-warm: #d4a574;
+  --accent-earth: #8c7e74;
+
+  /* Borders & Dividers */
+  --border-light: #e8e8e8;
+  --border-medium: #d0d0d0;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+  --shadow-lg: 0 10px 40px rgba(0,0,0,0.12);
 
   /* Typography */
-  --font-heading: 'Playfair Display', serif;
-  --font-body: 'Lato', sans-serif;
+  --font-heading: 'Lora', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Layout */
   --container-width: 1200px;
-  --header-height: 90px;
-  --radius-sm: 8px;
-  --radius-md: 16px;
-  --soft-shadow: 0 10px 30px rgba(166, 124, 82, 0.08);
+  --header-height: 80px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
 }
 
+/* Reset & Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -39,57 +46,64 @@ body {
   background-color: var(--bg-color);
   color: var(--text-main);
   font-family: var(--font-body);
-  line-height: 1.7;
+  font-size: 16px;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+/* Typography Scale */
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   color: var(--text-main);
-  font-weight: 700;
-  margin-bottom: 1.2rem;
-  letter-spacing: -0.01em;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
 }
 
 h1 {
-  font-size: 3.5rem;
-  line-height: 1.1;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
 }
 
 h2 {
-  font-size: 2.5rem;
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
 }
 
 h3 {
-  font-size: 1.75rem;
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+p {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
 }
 
 a {
   text-decoration: none;
   color: inherit;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 img {
   max-width: 100%;
   display: block;
-  border-radius: var(--radius-sm);
 }
 
-/* Utilities */
+/* Utility Classes */
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 clamp(20px, 5vw, 40px);
 }
 
 .section {
-  padding: 100px 0;
+  padding: clamp(60px, 10vw, 100px) 0;
 }
 
 .text-center {
@@ -112,42 +126,43 @@ img {
   gap: 1.5rem;
 }
 
-/* Buttons */
+/* Button Styles */
 .btn {
   display: inline-block;
-  padding: 14px 36px;
+  padding: 14px 32px;
   font-family: var(--font-body);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 0.8rem;
-  border-radius: 50px;
-  /* Pill shape */
-  transition: all 0.3s ease;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  border-radius: 6px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  border: 2px solid transparent;
+  text-align: center;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .btn-primary {
-  background-color: var(--primary-brand);
-  color: #fff;
-  border: 1px solid var(--primary-brand);
+  background-color: var(--primary-navy);
+  color: white;
 }
 
 .btn-primary:hover {
-  background-color: transparent;
-  color: var(--primary-brand);
+  background-color: var(--primary-blue);
 }
 
 .btn-outline {
   background-color: transparent;
   color: var(--text-main);
-  border: 1px solid var(--text-main);
+  border-color: var(--border-medium);
 }
 
 .btn-outline:hover {
   background-color: var(--text-main);
-  color: var(--bg-color);
-  /* Invert text on hover */
+  color: white;
 }
 
 /* Header */
@@ -157,54 +172,66 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: var(--bg-color);
-  /* Default to solid for internal pages */
-  backdrop-filter: none;
   z-index: 1000;
   display: flex;
   align-items: center;
-  transition: background-color 0.3s ease, padding 0.3s ease;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-light);
+}
+
+body.home-page header {
+  background-color: transparent;
+  border-bottom: none;
 }
 
 header .container {
-  max-width: 100%;
   width: 100%;
-  padding: 0 40px;
 }
 
-header .logo {
-  font-family: var(--font-heading);
-  font-size: 1.8rem;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  color: var(--primary-brand);
+header .logo img {
+  height: 50px;
+  width: auto;
 }
 
 header nav ul {
   display: flex;
   list-style: none;
-  gap: 40px;
+  gap: 36px;
+  align-items: center;
 }
 
 header nav a {
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 700;
+  font-size: 0.9375rem;
+  font-weight: 500;
   color: var(--text-main);
-  /* Default Dark */
   position: relative;
-  transition: color 0.3s ease;
+  letter-spacing: -0.01em;
+}
+
+body.home-page header nav a {
+  color: white;
+}
+
+header.scrolled {
+  background-color: rgba(255, 255, 255, 0.98);
+  border-bottom: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+}
+
+header.scrolled nav a {
+  color: var(--text-main) !important;
 }
 
 header nav a::after {
   content: '';
   position: absolute;
-  bottom: -4px;
+  bottom: -6px;
   left: 0;
   width: 0;
-  height: 1px;
-  background-color: var(--primary-brand);
+  height: 2px;
+  background-color: var(--accent-warm);
   transition: width 0.3s ease;
 }
 
@@ -213,218 +240,225 @@ header nav a.active::after {
   width: 100%;
 }
 
-/* Homepage Transparent Header State (applied via JS/HTML class) */
-body.home-page header {
-  background-color: transparent;
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 1001;
 }
 
-body.home-page header nav a {
-  color: #fff;
-  /* White text on dark hero */
+.mobile-menu-toggle span {
+  width: 26px;
+  height: 2px;
+  background-color: var(--text-main);
+  transition: 0.3s;
 }
 
-body.home-page header nav a:hover {
-  color: var(--primary-brand);
-  /* Keep brand color on hover? Or maybe white/accent */
-}
-
-body.home-page header .mobile-menu-toggle span {
-  background-color: #fff;
-}
-
-
-/* Scrolled State (applies to Homepage on scroll) */
-header.scrolled {
-  background-color: var(--bg-color) !important;
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border-color);
-}
-
-header.scrolled nav a {
-  color: var(--text-main) !important;
-  /* Force dark text */
+body.home-page .mobile-menu-toggle span {
+  background-color: white;
 }
 
 header.scrolled .mobile-menu-toggle span {
   background-color: var(--text-main) !important;
 }
 
-
-/* Mobile Menu */
-.mobile-menu-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 6px;
-  cursor: pointer;
+/* Main Content Spacing */
+main {
+  margin-top: 0;
 }
 
-.mobile-menu-toggle span {
-  width: 24px;
-  height: 2px;
-  background-color: var(--text-main);
-  transition: 0.3s;
+body:not(.home-page) main {
+  margin-top: var(--header-height);
 }
 
-/* Footer */
-footer {
-  background-color: #222;
-  /* Dark footer for contrast */
-  color: #fff;
-  padding: 80px 0 40px;
+/* Hero Section Improved */
+.hero-section {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  padding: clamp(80px, 15vh, 120px) 0 clamp(60px, 10vh, 100px);
 }
 
-footer h4 {
-  color: #fff;
-  font-size: 1.1rem;
+.hero-section h1 {
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  line-height: 1.2;
   margin-bottom: 24px;
+  font-weight: 700;
 }
 
-footer a {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.95rem;
+.hero-section p {
+  font-size: clamp(1.0625rem, 2vw, 1.25rem);
+  line-height: 1.6;
+  opacity: 0.95;
 }
 
-footer a:hover {
-  color: #fff;
-}
-
-footer .copyright {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 30px;
-  text-align: center;
-  margin-top: 60px;
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.4);
-}
-
-/* Specific Card Styles */
+/* Card Styles */
 .card {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
+  background: white;
   border-radius: var(--radius-md);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
   overflow: hidden;
-  box-shadow: var(--soft-shadow);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-light);
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(166, 124, 82, 0.12);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
 }
 
 .card-img {
+  width: 100%;
   height: 280px;
   overflow: hidden;
+  background-color: var(--bg-secondary);
 }
 
 .card-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s ease;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card:hover .card-img img {
-  transform: scale(1.08);
+  transform: scale(1.05);
 }
 
 .card-content {
-  padding: 40px;
+  padding: 32px;
 }
 
-/* Journey Specific Cards */
-/* Journey Specific Cards */
+.card-content h3 {
+  margin-bottom: 12px;
+  color: var(--text-main);
+}
+
+.card-content p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Journey Cards */
 .journey-timeline {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 40px;
-  overflow-x: auto;
-  padding: 60px 40px;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-}
-
-/* Scrollbar Style */
-.journey-timeline::-webkit-scrollbar {
-  height: 8px;
-}
-
-.journey-timeline::-webkit-scrollbar-track {
-  background: var(--border-color);
-  border-radius: 10px;
-}
-
-.journey-timeline::-webkit-scrollbar-thumb {
-  background: var(--primary-brand);
-  border-radius: 10px;
+  padding: 40px 0;
 }
 
 .journey-card {
-  flex: 0 0 450px;
   display: flex;
   flex-direction: column;
-  background: var(--card-bg);
+  background: white;
   border-radius: var(--radius-md);
   overflow: hidden;
-  box-shadow: var(--soft-shadow);
+  box-shadow: var(--shadow-md);
   transition: all 0.4s ease;
-  scroll-snap-align: center;
+  border: 1px solid var(--border-light);
 }
 
 .journey-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 25px 50px rgba(166, 124, 82, 0.15);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
 }
 
 .journey-card-image {
   width: 100%;
-  height: 300px;
-  flex-shrink: 0;
+  height: 320px;
+  overflow: hidden;
+  background-color: var(--bg-secondary);
 }
 
-.journey-card-image img {
+.journey-card-image img,
+.journey-card-image iframe {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
 .journey-card-info {
-  padding: 35px;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+  padding: 36px;
 }
 
 .journey-card-info .label {
-  color: var(--primary-brand);
-  font-weight: 700;
-  font-size: 0.8rem;
+  color: var(--accent-warm);
+  font-weight: 600;
+  font-size: 0.8125rem;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 15px;
+  letter-spacing: 1.5px;
+  margin-bottom: 16px;
   display: block;
 }
 
 .journey-card-info h3 {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  line-height: 1.3;
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+  line-height: 1.4;
 }
 
-.journey-card-info p {
+.journey-card-info .content {
   font-size: 1rem;
   line-height: 1.7;
-  color: var(--text-muted);
+  color: var(--text-secondary);
 }
 
-/* Responsive */
+/* Footer */
+footer {
+  background-color: #1a1612;
+  color: white;
+  padding: 60px 0 30px;
+}
+
+footer h4 {
+  color: white;
+  font-size: 1.0625rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+footer a {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.9375rem;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: white;
+}
+
+footer .footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 50px;
+}
+
+footer .copyright {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 30px;
+  text-align: center;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  footer .footer-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 @media (max-width: 768px) {
-  h1 {
-    font-size: 2.5rem;
+  :root {
+    --header-height: 70px;
   }
 
-  h2 {
-    font-size: 2rem;
+  header .logo img {
+    height: 42px;
   }
 
   .mobile-menu-toggle {
@@ -432,24 +466,86 @@ footer .copyright {
   }
 
   header nav {
-    position: absolute;
+    position: fixed;
     top: var(--header-height);
     left: 0;
     width: 100%;
-    background-color: var(--bg-color);
-    padding: 30px;
-    border-bottom: 1px solid var(--border-color);
-    transform: translateY(-150%);
+    height: calc(100vh - var(--header-height));
+    background-color: white;
+    padding: 40px;
+    transform: translateX(-100%);
     transition: transform 0.3s ease;
+    overflow-y: auto;
   }
 
   header nav.active {
-    transform: translateY(0);
+    transform: translateX(0);
   }
 
   header nav ul {
     flex-direction: column;
-    text-align: center;
     gap: 24px;
+    align-items: flex-start;
   }
+
+  header nav a {
+    font-size: 1.125rem;
+    color: var(--text-main) !important;
+  }
+
+  .hero-section {
+    min-height: 70vh;
+  }
+
+  .card-img {
+    height: 220px;
+  }
+
+  footer .footer-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .journey-card-image {
+    height: 240px;
+  }
+
+  /* Stack two-column sections */
+  section[style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 16px 24px;
+  }
+
+  .card-content {
+    padding: 24px;
+  }
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection Color */
+::selection {
+  background-color: var(--accent-warm);
+  color: white;
+}
+
+/* Focus States */
+a:focus,
+button:focus,
+.btn:focus {
+  outline: 2px solid var(--accent-warm);
+  outline-offset: 2px;
 }
