@@ -31,12 +31,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Load latest content for the homepage
-    if (window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) {
-        loadLatestContent();
-    }
+    // BACKEND DISABLED: Load latest content for the homepage
+    // if (window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) {
+    //     loadLatestContent();
+    // }
 });
 
+// BACKEND DISABLED: Dynamic content loading disabled - content is now static in HTML
+/*
 async function loadLatestContent() {
     try {
         const response = await fetch('/api/content');
@@ -83,7 +85,7 @@ async function loadLatestContent() {
         // 3. Update Blog Card
         if (data.blog && data.blog.length > 0) {
             const latestBlog = data.blog[data.blog.length - 1];
-            // Blog usually doesn't have an image in this JSON structure based on previous artifact, 
+            // Blog usually doesn't have an image in this JSON structure based on previous artifact,
             // so we might keep the static one or if there's an imageUrl property we use it.
             // checking content.json: blog items have id, date, title, summary. No image.
 
@@ -98,3 +100,4 @@ async function loadLatestContent() {
         console.error('Error loading latest content:', error);
     }
 }
+*/
