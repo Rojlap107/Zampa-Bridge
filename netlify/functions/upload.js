@@ -1,5 +1,5 @@
 const busboy = require('busboy');
-const fs = require('fs').promises;
+const { getStore } = require('@netlify/blobs');
 const path = require('path');
 
 exports.handler = async (event, context) => {
@@ -37,11 +37,12 @@ exports.handler = async (event, context) => {
     let fileData = null;
     let fileName = null;
     let fileExt = null;
+    let mimeType = null;
 
     bb.on('file', (fieldname, file, info) => {
-      const { filename, encoding, mimeType } = info;
-      fileName = filename;
-      fileExt = path.extname(filename);
+      fileName = info.filename;
+      fileExt = path.extname(info.filename);
+      mimeType = info.mimeType;
 
       const chunks = [];
       file.on('data', (data) => {
@@ -64,27 +65,25 @@ exports.handler = async (event, context) => {
       }
 
       try {
-        const uploadsDir = path.join(__dirname, '../../public/images/uploads');
-
-        // Ensure directory exists
-        try {
-          await fs.access(uploadsDir);
-        } catch {
-          await fs.mkdir(uploadsDir, { recursive: true });
-        }
-
+        const store = getStore('uploads');
         const timestamp = Date.now();
         const newFileName = `${timestamp}${fileExt}`;
-        const filePath = path.join(uploadsDir, newFileName);
 
-        await fs.writeFile(filePath, fileData);
+        // Store the image in Netlify Blobs with metadata
+        await store.set(newFileName, fileData, {
+          metadata: {
+            contentType: mimeType,
+            originalName: fileName
+          }
+        });
 
-        const relativePath = `images/uploads/${newFileName}`;
+        // Return URL that points to our image serving function
+        const imageUrl = `/.netlify/functions/image/${newFileName}`;
 
         resolve({
           statusCode: 200,
           headers,
-          body: JSON.stringify({ imageUrl: relativePath })
+          body: JSON.stringify({ imageUrl })
         });
       } catch (error) {
         console.error('Upload error:', error);
