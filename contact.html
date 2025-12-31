@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | Zampa Bridge</title>
+    <title>Connect | Zampa</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="images/Logo without BG.png">
 </head>
@@ -12,9 +12,8 @@
 <body>
     <header>
         <div class="container flex justify-between items-center">
-            <a href="index.html" class="logo">
-                <img src="images/Logo without BG.png" alt="Zampa Bridge" style="height: 60px; width: auto;">
-            </a>
+            <a href="index.html" class="logo"><img src="images/Logo without BG.png" alt="Zampa"
+                    style="height: 50px; width: auto;"></a>
             <div class="mobile-menu-toggle">
                 <span></span>
                 <span></span>
@@ -22,138 +21,93 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="journey.html">Journey</a></li>
+                    <li><a href="index.html">About</a></li>
+                    <li><a href="journey.html">Namdol's Story</a></li>
                     <li><a href="episodes.html">Episodes</a></li>
                     <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html" class="active">Contact</a></li>
+                    <li><a href="contact.html" class="active">Connect</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <section class="section"
-            style="padding-top: 180px; padding-bottom: 60px; text-align: center; background-color: var(--bg-color);">
-            <div class="container text-center">
-                <h1 style="font-size: 3.5rem; color: var(--text-main); margin-bottom: 20px;">Get in Touch</h1>
-                <p
-                    style="max-width: 700px; margin: 0 auto; font-size: 1.15rem; color: var(--text-muted); font-family: var(--font-heading);">
-                    Have a story to share or a question to ask? We’d love to hear from you.
+        <!-- Hero Section -->
+        <section class="section" style="padding-top: 140px; padding-bottom: 60px; background: linear-gradient(180deg, #f8f6f4 0%, #ffffff 100%);">
+            <div class="container" style="max-width: 800px; text-align: center;">
+                <span
+                    style="color: var(--accent-warm); font-weight: 600; font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 2.5px; display: block; margin-bottom: 20px;">
+                    LET'S CONNECT
+                </span>
+                <h1 style="font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 24px; font-weight: 600; line-height: 1.2;">Get in Touch</h1>
+                <p style="font-size: 1.0625rem; color: var(--text-secondary); line-height: 1.7;">
+                    Have a story to share, a question to ask, or want to join the journey? We'd love to hear from you.
                 </p>
             </div>
         </section>
 
-        <section class="section">
-            <div class="container" style="max-width: 800px;">
-                <div
-                    style="background: white; padding: 60px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); position: relative;">
+        <!-- Contact Form Section -->
+        <section class="section" style="padding: 80px 0; background-color: white;">
+            <div class="container" style="max-width: 700px;">
+                <div style="background: white; padding: 50px; border-radius: 12px; border: 1px solid var(--border-light); box-shadow: var(--shadow-sm);">
                     <form id="contact-form">
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px;">
-                            <div style="display: flex; flex-direction: column; gap: 10px;">
-                                <label for="name"
-                                    style="font-weight: 700; font-size: 0.9rem; text-transform: uppercase;">Name</label>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px;">
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                <label for="name" style="font-weight: 600; font-size: 0.875rem; color: var(--text-main); letter-spacing: 0.3px;">Name</label>
                                 <input type="text" id="name" name="name"
-                                    style="padding: 14px; border: 1px solid #ddd; border-radius: 4px; font-family: var(--font-body); outline: none; transition: 0.3s;"
-                                    onfocus="this.style.borderColor='var(--primary-brand)'"
-                                    onblur="this.style.borderColor='#ddd'" required>
+                                    style="padding: 14px 16px; border: 1px solid var(--border-medium); border-radius: 6px; font-family: var(--font-body); font-size: 1rem; outline: none; transition: all 0.3s;"
+                                    onfocus="this.style.borderColor='var(--primary-navy)'; this.style.boxShadow='0 0 0 3px rgba(17,30,71,0.1)'"
+                                    onblur="this.style.borderColor='var(--border-medium)'; this.style.boxShadow='none'" required>
                             </div>
-                            <div style="display: flex; flex-direction: column; gap: 10px;">
-                                <label for="email"
-                                    style="font-weight: 700; font-size: 0.9rem; text-transform: uppercase;">Email</label>
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                <label for="email" style="font-weight: 600; font-size: 0.875rem; color: var(--text-main); letter-spacing: 0.3px;">Email</label>
                                 <input type="email" id="email" name="email"
-                                    style="padding: 14px; border: 1px solid #ddd; border-radius: 4px; font-family: var(--font-body); outline: none; transition: 0.3s;"
-                                    onfocus="this.style.borderColor='var(--primary-brand)'"
-                                    onblur="this.style.borderColor='#ddd'" required>
+                                    style="padding: 14px 16px; border: 1px solid var(--border-medium); border-radius: 6px; font-family: var(--font-body); font-size: 1rem; outline: none; transition: all 0.3s;"
+                                    onfocus="this.style.borderColor='var(--primary-navy)'; this.style.boxShadow='0 0 0 3px rgba(17,30,71,0.1)'"
+                                    onblur="this.style.borderColor='var(--border-medium)'; this.style.boxShadow='none'" required>
                             </div>
                         </div>
 
-                        <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 40px;">
-                            <label for="message"
-                                style="font-weight: 700; font-size: 0.9rem; text-transform: uppercase;">Message</label>
+                        <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 32px;">
+                            <label for="message" style="font-weight: 600; font-size: 0.875rem; color: var(--text-main); letter-spacing: 0.3px;">Message</label>
                             <textarea id="message" name="message" rows="6"
-                                style="padding: 14px; border: 1px solid #ddd; border-radius: 4px; font-family: var(--font-body); outline: none; transition: 0.3s;"
-                                onfocus="this.style.borderColor='var(--primary-brand)'"
-                                onblur="this.style.borderColor='#ddd'" required></textarea>
+                                style="padding: 14px 16px; border: 1px solid var(--border-medium); border-radius: 6px; font-family: var(--font-body); font-size: 1rem; outline: none; transition: all 0.3s; resize: vertical;"
+                                onfocus="this.style.borderColor='var(--primary-navy)'; this.style.boxShadow='0 0 0 3px rgba(17,30,71,0.1)'"
+                                onblur="this.style.borderColor='var(--border-medium)'; this.style.boxShadow='none'" required></textarea>
                         </div>
 
-                        <button type="submit" id="submit-btn" class="btn-primary"
-                            style="width: 100%; border: none; padding: 18px; font-size: 1rem; cursor: pointer; transition: 0.3s;">
+                        <button type="submit" id="submit-btn" class="btn btn-primary"
+                            style="width: 100%; padding: 16px; font-size: 0.9375rem; font-weight: 600; background-color: var(--primary-navy); color: white; border: none; border-radius: 6px; cursor: pointer; transition: all 0.3s;">
                             Send Message
                         </button>
                     </form>
 
                     <div id="form-status"
-                        style="margin-top: 25px; padding: 15px; border-radius: 4px; display: none; text-align: center; font-weight: 600;">
+                        style="margin-top: 20px; padding: 16px; border-radius: 6px; display: none; text-align: center; font-weight: 500; font-size: 0.9375rem;">
                     </div>
                 </div>
 
-                <!-- BACKEND DISABLED: Contact form submission disabled -->
-                <!--
-                <script>
-                    document.getElementById('contact-form').addEventListener('submit', async (e) => {
-                        e.preventDefault();
-                        const btn = document.getElementById('submit-btn');
-                        const status = document.getElementById('form-status');
-                        const originalText = btn.innerText;
-
-                        // Loading State
-                        btn.disabled = true;
-                        btn.innerText = "Sending...";
-                        status.style.display = "none";
-
-                        const formData = {
-                            name: document.getElementById('name').value,
-                            email: document.getElementById('email').value,
-                            message: document.getElementById('message').value
-                        };
-
-                        try {
-                            const response = await fetch('/api/contact', {
-                                method: 'POST',
-                                headers: { 'Content-Type': 'application/json' },
-                                body: JSON.stringify(formData)
-                            });
-
-                            const result = await response.json();
-
-                            if (response.ok) {
-                                status.innerText = result.message;
-                                status.style.backgroundColor = "#e7f3ef";
-                                status.style.color = "#2d5a4c";
-                                status.style.display = "block";
-                                document.getElementById('contact-form').reset();
-                            } else {
-                                throw new Error(result.error || "Failed to send message");
-                            }
-                        } catch (error) {
-                            status.innerText = error.message;
-                            status.style.backgroundColor = "#fdecec";
-                            status.style.color = "#9b2c2c";
-                            status.style.display = "block";
-                        } finally {
-                            btn.disabled = false;
-                            btn.innerText = originalText;
-                        }
-                    });
-                </script>
-                -->
-
+                <!-- Social Media Links -->
                 <div style="text-align: center; margin-top: 80px;">
-                    <h3 style="margin-bottom: 30px;">Connect on Social Media</h3>
-                    <div class="flex gap-4" style="justify-content: center;">
+                    <h3 style="margin-bottom: 24px; font-size: 1.5rem; color: var(--text-main);">Connect on Social Media</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 32px; font-size: 1rem;">Follow our journey and join the conversation</p>
+                    <div style="display: flex; gap: 20px; justify-content: center;">
                         <a href="#"
-                            style="background: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--text-main); border: 1px solid var(--border-color); font-weight:700; font-size:0.9rem;"
-                            class="social-icon">
+                            style="background: white; width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--text-main); border: 2px solid var(--border-light); font-weight: 600; font-size: 0.875rem; text-decoration: none; transition: all 0.3s; box-shadow: var(--shadow-sm);"
+                            onmouseover="this.style.borderColor='var(--primary-navy)'; this.style.transform='translateY(-4px)'; this.style.boxShadow='var(--shadow-md)'"
+                            onmouseout="this.style.borderColor='var(--border-light)'; this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-sm)'">
                             IG
                         </a>
                         <a href="#"
-                            style="background: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--text-main); border: 1px solid var(--border-color); font-weight:700; font-size:0.9rem;"
-                            class="social-icon">
+                            style="background: white; width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--text-main); border: 2px solid var(--border-light); font-weight: 600; font-size: 0.875rem; text-decoration: none; transition: all 0.3s; box-shadow: var(--shadow-sm);"
+                            onmouseover="this.style.borderColor='var(--primary-navy)'; this.style.transform='translateY(-4px)'; this.style.boxShadow='var(--shadow-md)'"
+                            onmouseout="this.style.borderColor='var(--border-light)'; this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-sm)'">
                             YT
                         </a>
                         <a href="#"
-                            style="background: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--text-main); border: 1px solid var(--border-color); font-weight:700; font-size:0.9rem;"
-                            class="social-icon">
+                            style="background: white; width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--text-main); border: 2px solid var(--border-light); font-weight: 600; font-size: 0.875rem; text-decoration: none; transition: all 0.3s; box-shadow: var(--shadow-sm);"
+                            onmouseover="this.style.borderColor='var(--primary-navy)'; this.style.transform='translateY(-4px)'; this.style.boxShadow='var(--shadow-md)'"
+                            onmouseout="this.style.borderColor='var(--border-light)'; this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-sm)'">
                             LI
                         </a>
                     </div>
@@ -162,42 +116,54 @@
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
+    <footer style="background-color: #1a1612; color: white;">
+        <div class="container" style="padding: 60px 0 30px;">
+            <div class="footer-content" style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 50px;">
                 <div>
-                    <a href="index.html" class="logo">
-                        <img src="images/Logo without BG.png" alt="Zampa Bridge"
-                            style="height: 50px; width: auto; opacity: 0.9;">
-                    </a>
-                    <p style="opacity: 0.7; font-size: 0.95rem; line-height: 1.6; max-width: 300px; margin-top: 20px;">
-                        A digital sanctuary bridging tradition and modernity. <br><br>Made with 🤍 for the Himalayas.
+                    <img src="images/Logo without BG.png" alt="Zampa" style="height: 60px; margin-bottom: 24px;">
+                    <p style="opacity: 0.8; font-size: 1rem; line-height: 1.7; max-width: 350px;">
+                        Bridging the traditional wisdom of the Himalayas with the opportunities of the modern world.
                     </p>
                 </div>
                 <div>
-                    <h4>Navigation</h4>
-                    <ul>
-                        <li><a href="journey.html">Journey</a></li>
-                        <li><a href="episodes.html">Episodes</a></li>
-                        <li><a href="blog.html">Blog</a></li>
+                    <h4 style="margin-bottom: 20px; font-size: 1.0625rem;">Navigation</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 12px;"><a href="index.html" style="color: rgba(255,255,255,0.75); text-decoration: none;">About</a></li>
+                        <li style="margin-bottom: 12px;"><a href="journey.html" style="color: rgba(255,255,255,0.75); text-decoration: none;">Journey</a></li>
+                        <li style="margin-bottom: 12px;"><a href="episodes.html" style="color: rgba(255,255,255,0.75); text-decoration: none;">Episodes</a></li>
+                        <li style="margin-bottom: 12px;"><a href="blog.html" style="color: rgba(255,255,255,0.75); text-decoration: none;">Blog</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4>Contact</h4>
-                    <ul>
-                        <li><a href="contact.html">Send a Message</a></li>
-                        <li><a href="#">Instagram @zampabridge</a></li>
-                        <li><a href="#">YouTube Channel</a></li>
+                    <h4 style="margin-bottom: 20px; font-size: 1.0625rem;">Connect</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 12px;"><a href="contact.html" style="color: rgba(255,255,255,0.75); text-decoration: none;">Get in Touch</a></li>
+                        <li style="margin-bottom: 12px;"><a href="#" style="color: rgba(255,255,255,0.75); text-decoration: none;">Instagram</a></li>
+                        <li style="margin-bottom: 12px;"><a href="#" style="color: rgba(255,255,255,0.75); text-decoration: none;">YouTube</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="copyright">
-                &copy; 2025 Zampa Bridge. Inspired by the Himalayas.
+            <div class="copyright" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; text-align: center; opacity: 0.6; font-size: 0.9rem;">
+                &copy; 2025 Zampa. Working for a world where every young person can find purpose.
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <!-- BACKEND DISABLED: Contact form submission disabled - form ready for manual setup -->
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const status = document.getElementById('form-status');
+
+            // Show message that backend is disabled
+            status.innerText = "Form submission is currently disabled. Please reach out via social media or email directly.";
+            status.style.backgroundColor = "#f8f6f4";
+            status.style.color = "var(--text-secondary)";
+            status.style.border = "1px solid var(--border-light)";
+            status.style.display = "block";
+        });
+    </script>
 </body>
 
 </html>

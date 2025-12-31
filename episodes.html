@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Episodes | Zampa Bridge</title>
+    <title>Episodes | Zampa</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="images/Logo without BG.png">
 </head>
@@ -12,9 +12,8 @@
 <body>
     <header>
         <div class="container flex justify-between items-center">
-            <a href="index.html" class="logo">
-                <img src="images/Logo without BG.png" alt="Zampa Bridge" style="height: 60px; width: auto;">
-            </a>
+            <a href="index.html" class="logo"><img src="images/Logo without BG.png" alt="Zampa"
+                    style="height: 50px; width: auto;"></a>
             <div class="mobile-menu-toggle">
                 <span></span>
                 <span></span>
@@ -22,121 +21,104 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="journey.html">Journey</a></li>
+                    <li><a href="index.html">About</a></li>
+                    <li><a href="journey.html">Namdol's Story</a></li>
                     <li><a href="episodes.html" class="active">Episodes</a></li>
                     <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="contact.html">Connect</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main id="episodes-main">
-        <!-- Header Section -->
-        <section class="section" style="padding-top: 180px; padding-bottom: 40px; text-align: center;">
-            <div class="container">
+    <main>
+        <!-- Hero Section -->
+        <section class="section" style="padding-top: 140px; padding-bottom: 60px; background: linear-gradient(180deg, #f8f6f4 0%, #ffffff 100%);">
+            <div class="container" style="max-width: 800px; text-align: center;">
                 <span
-                    style="color: var(--primary-brand); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; display: block; margin-bottom: 20px;">CONVERSATIONS</span>
-                <h1 style="font-size: 3.8rem; margin-bottom: 24px;">Episodes</h1>
-                <p
-                    style="max-width: 650px; margin: 0 auto; font-size: 1.2rem; color: var(--text-muted); line-height: 1.6;">
-                    Stories that travel across borders, cultures, and the human heart.
+                    style="color: var(--accent-warm); font-weight: 600; font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 2.5px; display: block; margin-bottom: 20px;">
+                    CONVERSATIONS THAT MATTER
+                </span>
+                <h1 style="font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 24px; font-weight: 600; line-height: 1.2;">Episodes</h1>
+                <p style="font-size: 1.0625rem; color: var(--text-secondary); line-height: 1.7;">
+                    Stories and conversations that bridge cultures, generations, and perspectives from the Himalayas to the modern world.
                 </p>
             </div>
         </section>
 
-        <!-- Timeline Container -->
-        <div id="episodes-timeline" class="journey-timeline">
-            <!-- Episode cards will be loaded here -->
-        </div>
+        <!-- Episodes Content -->
+        <section class="section" style="padding: 80px 0; background-color: white;">
+            <div class="container" style="max-width: 1000px;">
+                <div class="journey-timeline">
+                    <!-- Episode 1 -->
+                    <div class="journey-card">
+                        <div class="journey-card-image" style="background: #000; position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                            <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                                src="https://www.youtube.com/embed/sPp7vdLCAvw"
+                                title="Meeting Malala Yousafzai"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="journey-card-info">
+                            <span class="label">Episode 1</span>
+                            <h3>Meeting Malala Yousafzai</h3>
+                            <div class="content">
+                                <p>Meeting Malala Yousafzai wasn't just about seeing my role model on stage but also reimagining the impact I would like to create in the world. From the first unboxing of "Finding My Way" to watching Malala speak about her book and finally getting a copy signed, the experience has truly been rewarding and I am happy to share with you all.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section" style="padding: 100px 0; background: linear-gradient(135deg, #111E47 0%, #1a2a5e 100%); color: white; text-align: center;">
+            <div class="container" style="max-width: 650px;">
+                <h2 style="font-size: clamp(1.75rem, 4vw, 2.25rem); margin-bottom: 20px; font-weight: 500; color: white;">Stay Updated</h2>
+                <p style="margin-bottom: 40px; opacity: 0.9; font-size: 1.0625rem; line-height: 1.7; color: white;">
+                    Subscribe to be notified when new episodes are released.
+                </p>
+                <a href="contact.html" class="btn" style="background-color: white; color: var(--primary-navy); padding: 14px 40px; font-size: 0.9375rem; font-weight: 600; border-radius: 6px; text-decoration: none;">Get Notified</a>
+            </div>
+        </section>
     </main>
 
-    <footer style="background-color: #2b241f;">
-        <div class="container">
-            <div class="footer-content">
+    <footer style="background-color: #1a1612; color: white;">
+        <div class="container" style="padding: 60px 0 30px;">
+            <div class="footer-content" style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 50px;">
                 <div>
-                    <a href="index.html" class="logo"
-                        style="color: white; font-size: 1.8rem; margin-bottom: 24px; display: block;">ZAMPA BRIDGE</a>
-                    <p style="opacity: 0.7; font-size: 0.95rem; line-height: 1.6; max-width: 300px;">
-                        A digital sanctuary bridging tradition and modernity. <br><br>Made with 🤍 for the Himalayas.
+                    <img src="images/Logo without BG.png" alt="Zampa" style="height: 60px; margin-bottom: 24px;">
+                    <p style="opacity: 0.8; font-size: 1rem; line-height: 1.7; max-width: 350px;">
+                        Bridging the traditional wisdom of the Himalayas with the opportunities of the modern world.
                     </p>
                 </div>
                 <div>
-                    <h4>Navigation</h4>
-                    <ul>
-                        <li><a href="journey.html">Journey</a></li>
-                        <li><a href="episodes.html">Episodes</a></li>
-                        <li><a href="blog.html">Blog</a></li>
+                    <h4 style="margin-bottom: 20px; font-size: 1.0625rem;">Navigation</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 12px;"><a href="index.html" style="color: rgba(255,255,255,0.75); text-decoration: none;">About</a></li>
+                        <li style="margin-bottom: 12px;"><a href="journey.html" style="color: rgba(255,255,255,0.75); text-decoration: none;">Journey</a></li>
+                        <li style="margin-bottom: 12px;"><a href="episodes.html" style="color: rgba(255,255,255,0.75); text-decoration: none;">Episodes</a></li>
+                        <li style="margin-bottom: 12px;"><a href="blog.html" style="color: rgba(255,255,255,0.75); text-decoration: none;">Blog</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4>Contact</h4>
-                    <ul>
-                        <li><a href="contact.html">Send a Message</a></li>
-                        <li><a href="#">Instagram @zampabridge</a></li>
-                        <li><a href="#">YouTube Channel</a></li>
+                    <h4 style="margin-bottom: 20px; font-size: 1.0625rem;">Connect</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 12px;"><a href="contact.html" style="color: rgba(255,255,255,0.75); text-decoration: none;">Get in Touch</a></li>
+                        <li style="margin-bottom: 12px;"><a href="#" style="color: rgba(255,255,255,0.75); text-decoration: none;">Instagram</a></li>
+                        <li style="margin-bottom: 12px;"><a href="#" style="color: rgba(255,255,255,0.75); text-decoration: none;">YouTube</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="copyright">
-                &copy; 2025 Zampa Bridge. Inspired by the Himalayas.
+            <div class="copyright" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; text-align: center; opacity: 0.6; font-size: 0.9rem;">
+                &copy; 2025 Zampa. Working for a world where every young person can find purpose.
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
-    <!-- BACKEND DISABLED: Dynamic content loading disabled - content is now static in HTML -->
-    <!--
-    <script>
-        // CMS Content Fetch
-        fetch('/api/content')
-            .then(response => response.json())
-            .then(data => {
-                if (Array.isArray(data.episodes)) {
-                    const timeline = document.getElementById('episodes-timeline');
-                    timeline.innerHTML = '';
-
-                    data.episodes.forEach((episode, index) => {
-                        const card = document.createElement('div');
-                        card.className = 'journey-card';
-                        card.style.opacity = "0";
-                        card.style.transform = "translateX(50px)";
-                        card.style.transition = "all 0.8s ease-out";
-
-                        card.innerHTML = `
-                            <div class="journey-card-image" style="background: #000; position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-                                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-                                    src="${episode.videoUrl}"
-                                    title="${episode.title}"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen>
-                                </iframe>
-                            </div>
-                            <div class="journey-card-info">
-                                <span class="label">Episode ${index + 1}</span>
-                                <h3>${episode.title}</h3>
-                                <div class="content">
-                                    <p>${episode.description || episode.content || ''}</p>
-                                </div>
-                            </div>
-                        `;
-
-                        timeline.appendChild(card);
-
-                        // Stagger the animation
-                        setTimeout(() => {
-                            card.style.opacity = "1";
-                            card.style.transform = "translateX(0)";
-                        }, 150 * (index + 1));
-                    });
-                }
-            })
-            .catch(error => {
-                console.error('Error loading content:', error);
-            });
-    </script>
-    -->
 </body>
 
 </html>
