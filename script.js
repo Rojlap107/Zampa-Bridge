@@ -31,6 +31,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Add scroll effect for homepage header
+    if (document.body.classList.contains('home-page')) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    }
+
     // BACKEND DISABLED: Load latest content for the homepage
     // if (window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) {
     //     loadLatestContent();

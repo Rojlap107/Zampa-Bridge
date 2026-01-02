@@ -7,13 +7,13 @@
     <title>Zampa | Bridging Two Worlds</title>
     <meta name="description" content="Working for a world where every young person can find purpose by connecting tradition and modernity">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="images/Logo without BG.png">
+    <link rel="icon" type="image/png" href="images/logo.png">
 </head>
 
 <body class="home-page">
     <header>
         <div class="container flex justify-between items-center">
-            <a href="index.html" class="logo"><img src="images/Logo without BG.png" alt="Zampa"
+            <a href="index.html" class="logo"><img src="images/logo.png" alt="Zampa"
                     style="height: 60px; width: auto;"></a>
 
             <div class="mobile-menu-toggle">
@@ -24,209 +24,176 @@
 
             <nav>
                 <ul>
-                    <li><a href="journey.html">Namdol's Story</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
                     <li><a href="episodes.html">Episodes</a></li>
                     <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html">Connect</a></li>
+                    <li><a href="contact.html">Join Zampa</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
+        <!-- Hero Section with Video -->
         <section class="hero-section"
-            style="min-height: 90vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; color: white; padding: 60px 0;">
-            <!-- Background Image -->
-            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
-                <img src="images/ladakh_landscape_hero_1766919402431.png" alt="Himalayan Landscape"
-                    style="width: 100%; height: 100%; object-fit: cover;">
+            style="min-height: 90vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; color: white; padding: 60px 0; isolation: isolate;">
+            <!-- Background Video -->
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;">
+                <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                    <source src="images/hero-video.mp4" type="video/mp4">
+                </video>
+                <!-- Dark overlay for better text readability -->
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 1;"></div>
             </div>
 
-            <div class="container" style="position: relative; z-index: 1; max-width: 900px; text-align: center;">
+            <div class="container" style="position: relative; z-index: 2; max-width: 900px; text-align: center;">
                 <h1
-                    style="font-size: clamp(1.5rem, 4vw, 2.25rem); margin-bottom: 24px; text-shadow: 0 2px 12px rgba(0,0,0,0.4); line-height: 1.3; color: white; font-weight: 600;">
-                    Working for a world where every young person can find purpose</h1>
+                    style="font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 32px; text-shadow: 0 2px 12px rgba(0,0,0,0.6); line-height: 1.2; color: white; font-weight: 600;">
+                    Two Worlds. One Bridge. ZAMPA.</h1>
                 <p
-                    style="font-size: clamp(0.95rem, 2vw, 1.125rem); font-family: var(--font-body); opacity: 0.95; margin-bottom: 40px; line-height: 1.6; max-width: 650px; margin-left: auto; margin-right: auto; color: white;">
-                    By connecting the traditional wisdom of the Himalayas with the opportunities of the modern world.
+                    style="font-size: clamp(1.125rem, 2.5vw, 1.5rem); font-family: var(--font-body); opacity: 0.95; margin-bottom: 20px; line-height: 1.5; max-width: 700px; margin-left: auto; margin-right: auto; color: white; font-weight: 500; text-shadow: 0 2px 8px rgba(0,0,0,0.5);">
+                    Bridging the Worlds of Young Adults
                 </p>
-                <div class="flex gap-4" style="justify-content: center; flex-wrap: wrap;">
-                    <a href="journey.html" class="btn"
-                        style="background-color: white; color: var(--text-main); border: none; padding: 14px 36px; font-size: 0.9375rem; font-weight: 600;">Read
-                        Namdol's Story</a>
-                    <a href="contact.html" class="btn"
-                        style="background-color: transparent; color: white; border: 2px solid white; padding: 12px 34px; font-size: 0.9375rem; font-weight: 600;">Get
-                        Involved</a>
-                </div>
             </div>
         </section>
 
-        <!-- Mission Statement -->
+        <!-- About Section -->
         <section class="section" style="padding: 100px 0; background-color: white;">
-            <div class="container" style="max-width: 900px;">
-                <div style="text-align: center;">
+            <div class="container" style="max-width: 1000px;">
+                <div style="text-align: center; margin-bottom: 50px;">
                     <h2
                         style="color: var(--accent-warm); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 2.5px; margin-bottom: 20px; font-weight: 600;">
-                        THE ZAMPA MISSION</h2>
-                    <h3 style="font-size: clamp(1.5rem, 3.5vw, 2rem); line-height: 1.5; color: var(--text-main); font-weight: 500; max-width: 750px; margin: 0 auto;">
-                        We live in a world divided by inequities. Zampa builds bridges across the globe to share models on purposeful living.
-                    </h3>
-                </div>
-            </div>
-        </section>
-
-        <!-- Two Worlds Section -->
-        <section class="section" style="padding: 100px 0; background: linear-gradient(180deg, #ffffff 0%, #f8f6f4 100%);">
-            <div class="container" style="max-width: 1100px;">
-                <div style="text-align: center; margin-bottom: 70px;">
-                    <h2 style="font-size: clamp(1.75rem, 3.5vw, 2.25rem); margin-bottom: 16px; color: var(--text-main); font-weight: 600;">Bridging Two Worlds</h2>
-                    <p style="font-size: 1.0625rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
-                        Drawing on the best of tradition and modernity to create meaningful connections
+                        WHAT IS ZAMPA</h2>
+                    <h3 style="font-size: clamp(1.75rem, 3.5vw, 2.25rem); margin-bottom: 24px; color: var(--text-main); font-weight: 600;">Building Bridges Between Two Worlds</h3>
+                    <p style="font-size: 1.125rem; line-height: 1.8; color: var(--text-secondary); max-width: 850px; margin: 0 auto;">
+                        Zampa (Tibetan for "bridge") connects young adults from the United States and the Himalayas through mutual learning, dignity-based exchange, and youth-driven storytelling. It's not charity—it's kinship.
                     </p>
                 </div>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; max-width: 900px; margin: 0 auto;">
-                    <!-- World 1 -->
-                    <div style="background: white; padding: 50px 40px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid #e8e8e8; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                        <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #6579B6, #4a5d9c); border-radius: 50%; margin: 0 auto 30px; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 8px 20px rgba(101,121,182,0.25);">
-                            🏔️
-                        </div>
-                        <h3 style="font-size: 1.5rem; margin-bottom: 16px; color: var(--text-main); font-weight: 600; text-align: center;">Traditional Wisdom</h3>
-                        <p style="font-size: 1rem; line-height: 1.7; color: var(--text-secondary); text-align: center;">
-                            Close proximity with nature, sustainable living, and purpose-driven life rooted in ancient cultural heritage.
-                        </p>
-                    </div>
-
-                    <!-- World 2 -->
-                    <div style="background: white; padding: 50px 40px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid #e8e8e8; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                        <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #d4a574, #b8935f); border-radius: 50%; margin: 0 auto 30px; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 8px 20px rgba(212,165,116,0.25);">
-                            🌆
-                        </div>
-                        <h3 style="font-size: 1.5rem; margin-bottom: 16px; color: var(--text-main); font-weight: 600; text-align: center;">Modern Opportunities</h3>
-                        <p style="font-size: 1rem; line-height: 1.7; color: var(--text-secondary); text-align: center;">
-                            Western education, healthcare, and material comfort combined with technological advancement and unlimited possibilities.
-                        </p>
-                    </div>
+                <div style="text-align: center;">
+                    <a href="about.html" class="btn" style="background-color: var(--primary-navy); color: white; padding: 14px 36px; font-size: 0.9375rem; font-weight: 600; text-decoration: none; display: inline-block; border-radius: 6px;">Learn More About Zampa</a>
                 </div>
             </div>
         </section>
 
-        <!-- Story Preview -->
-        <section class="section" style="padding: 100px 0; background: linear-gradient(135deg, #4a6fa5 0%, #6b8fc9 100%); color: white;">
+        <!-- About the Founder Summary -->
+        <section class="section" style="padding: 100px 0; background: linear-gradient(135deg, #E7EEF6 0%, #d5e3f0 100%);">
             <div class="container" style="max-width: 1100px;">
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center;">
                     <div>
-                        <h2 style="font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 2.5px; margin-bottom: 20px; opacity: 0.85; font-weight: 600; color: var(--accent-warm);">
-                            NAMDOL'S JOURNEY</h2>
-                        <h3 style="font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.4; margin-bottom: 24px; font-weight: 500;">
-                            "As a Tibetan-American, I've had the privilege to draw on the best of both worlds."
-                        </h3>
-                        <p style="font-size: 1rem; line-height: 1.7; margin-bottom: 36px; opacity: 0.9;">
-                            At 17, after visiting family in Ladakh, Namdol founded Zampa to bridge the gap between Western comforts and traditional wisdom. Through teaching English, playing the dranyen, and sharing stories, the mission is to empower youth with purposeful living.
-                        </p>
-                        <a href="journey.html" class="btn"
-                            style="background-color: white; color: var(--primary-navy); padding: 14px 36px; font-weight: 600; font-size: 0.9375rem; border-radius: 6px;">Read
-                            the Full Story →</a>
+                        <img src="images/Namdol.jpg" alt="Namdol Dorjee"
+                            style="width: 100%; border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.2);">
                     </div>
                     <div>
-                        <img src="images/modern_himalayan_bridge_concept_1766919419939.png" alt="Bridge Concept"
-                            style="width: 100%; border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.4);">
+                        <span style="color: var(--accent-warm); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 2.5px; font-weight: 600; display: block; margin-bottom: 16px;">MEET THE FOUNDER</span>
+                        <h3 style="font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.3; margin-bottom: 24px; font-weight: 600; color: var(--text-main);">
+                            Namdol Dorjee
+                        </h3>
+                        <p style="font-size: 1.0625rem; line-height: 1.8; margin-bottom: 24px; color: var(--text-secondary);">
+                            A Tibetan-American youth leader bridging two worlds through cultural empowerment, climate action, and social justice.
+                        </p>
+                        <p style="font-size: 1rem; line-height: 1.7; margin-bottom: 32px; color: var(--text-secondary); font-style: italic;">
+                            "I've had the privilege to draw on the best of both worlds. One driven by material growth and another shaped by human connection."
+                        </p>
+                        <a href="journey.html" class="btn"
+                            style="background-color: var(--primary-navy); color: white; padding: 14px 36px; font-weight: 600; font-size: 0.9375rem; border-radius: 6px; text-decoration: none; display: inline-block;">Read My Journey →</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Values / Impact -->
+        <!-- Episodes Section -->
         <section class="section" style="padding: 100px 0; background-color: white;">
-            <div class="container" style="max-width: 1000px; text-align: center;">
-                <h2 style="font-size: clamp(1.75rem, 3.5vw, 2.25rem); margin-bottom: 20px; color: var(--text-main); font-weight: 600;">Our Core Values</h2>
-                <p style="font-size: 1.0625rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 60px; max-width: 650px; margin-left: auto; margin-right: auto;">
-                    Youth worldwide face mental health struggles and a crisis of purpose. Traditional cultures offer time-tested wisdom we can all learn from.
-                </p>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 50px; max-width: 900px; margin: 0 auto;">
-                    <div style="padding: 40px 30px; background: #f8f6f4; border-radius: 12px;">
-                        <div style="font-size: 3rem; font-weight: 700; color: var(--primary-navy); margin-bottom: 16px;">∞</div>
-                        <h4 style="font-size: 1.125rem; margin-bottom: 12px; font-weight: 600;">Connection</h4>
-                        <p style="color: var(--text-secondary); font-size: 0.9375rem; line-height: 1.6;">Building bridges between cultures and generations</p>
+            <div class="container" style="max-width: 1100px;">
+                <div style="text-align: center; margin-bottom: 50px;">
+                    <span style="color: var(--accent-warm); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 2.5px; font-weight: 600; display: block; margin-bottom: 16px;">VIDEO STORIES</span>
+                    <h2 style="font-size: clamp(1.75rem, 3.5vw, 2.25rem); margin-bottom: 20px; color: var(--text-main); font-weight: 600;">Zampa Episodes</h2>
+                    <p style="font-size: 1.0625rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto; line-height: 1.7;">
+                        Monthly vlogs connecting the Himalayas and New England through authentic storytelling
+                    </p>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;">
+                    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+                        <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                            src="https://www.youtube.com/embed/sPp7vdLCAvw"
+                            title="Meeting Malala Yousafzai"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
                     </div>
-                    <div style="padding: 40px 30px; background: #f8f6f4; border-radius: 12px;">
-                        <div style="font-size: 3rem; font-weight: 700; color: var(--primary-navy); margin-bottom: 16px;">♡</div>
-                        <h4 style="font-size: 1.125rem; margin-bottom: 12px; font-weight: 600;">Purpose</h4>
-                        <p style="color: var(--text-secondary); font-size: 0.9375rem; line-height: 1.6;">Finding meaning through authentic human connection</p>
-                    </div>
-                    <div style="padding: 40px 30px; background: #f8f6f4; border-radius: 12px;">
-                        <div style="font-size: 3rem; font-weight: 700; color: var(--primary-navy); margin-bottom: 16px;">✦</div>
-                        <h4 style="font-size: 1.125rem; margin-bottom: 12px; font-weight: 600;">Empowerment</h4>
-                        <p style="color: var(--text-secondary); font-size: 0.9375rem; line-height: 1.6;">Enabling youth through shared experiences</p>
+                    <div>
+                        <h3 style="font-size: clamp(1.5rem, 3vw, 1.75rem); margin-bottom: 20px; color: var(--text-main); font-weight: 600;">Latest Episode: Meeting Malala Yousafzai</h3>
+                        <p style="font-size: 1.0625rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 28px;">
+                            Meeting Malala Yousafzai wasn't just about seeing my role model on stage but also reimagining the impact I would like to create in the world. From the first unboxing of "Finding My Way" to watching Malala speak about her book and finally getting a copy signed, the experience has truly been rewarding.
+                        </p>
+                        <a href="episodes.html" class="btn" style="background-color: var(--primary-navy); color: white; padding: 14px 36px; font-size: 0.9375rem; font-weight: 600; text-decoration: none; display: inline-block; border-radius: 6px;">Watch All Episodes →</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Content Cards -->
-        <section class="section" style="padding: 100px 0; background: linear-gradient(180deg, #ffffff 0%, #f8f6f4 50%);">
-            <div class="container">
-                <h2 style="font-size: clamp(1.75rem, 3.5vw, 2.25rem); text-align: center; margin-bottom: 50px; color: var(--text-main); font-weight: 600;">Explore Zampa</h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; max-width: 1100px; margin: 0 auto;">
-                    <!-- Journey Card -->
-                    <a href="journey.html" class="card" style="text-decoration: none; transition: transform 0.3s ease;">
-                        <div class="card-img" style="height: 280px; overflow: hidden;">
-                            <img src="images/modern_himalayan_bridge_concept_1766919419939.png"
-                                alt="Himalayan Bridge Concept" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div class="card-content" style="padding: 32px;">
-                            <span style="color: var(--primary-brand); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">Journey</span>
-                            <h3 style="margin: 16px 0; font-size: 1.6rem; color: var(--text-main);">Namdol's Story</h3>
-                            <p style="color: #4a4a4a; font-size: 1.05rem; line-height: 1.7;">
-                                From the highlands of Ladakh to founding Zampa—a journey of finding purpose through connection.
+        <!-- Blog Section -->
+        <section class="section" style="padding: 100px 0; background: linear-gradient(180deg, #ffffff 0%, #f8f6f4 100%);">
+            <div class="container" style="max-width: 1100px;">
+                <div style="text-align: center; margin-bottom: 50px;">
+                    <span style="color: var(--accent-warm); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 2.5px; font-weight: 600; display: block; margin-bottom: 16px;">MONTHLY REFLECTIONS</span>
+                    <h2 style="font-size: clamp(1.75rem, 3.5vw, 2.25rem); margin-bottom: 20px; color: var(--text-main); font-weight: 600;">From the Zampa Blog</h2>
+                    <p style="font-size: 1.0625rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto; line-height: 1.7;">
+                        Stories, reflections, and insights from the journey of building bridges across two worlds
+                    </p>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px;">
+                    <!-- Blog Post 1 -->
+                    <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
+                        <div style="padding: 40px;">
+                            <span style="color: var(--primary-navy); font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 16px;">December 2024</span>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 16px; color: var(--text-main); font-weight: 600;">The Power of Two Worlds</h3>
+                            <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.7; margin-bottom: 24px;">
+                                Growing up between two cultures taught me that the greatest strength comes not from choosing one world over another, but from embracing both.
                             </p>
+                            <a href="blog-post-1.html" style="color: var(--primary-navy); font-weight: 600; text-decoration: none; font-size: 0.9375rem;">Read More →</a>
                         </div>
-                    </a>
+                    </div>
 
-                    <!-- Episodes Card -->
-                    <a href="episodes.html" class="card" style="text-decoration: none; transition: transform 0.3s ease;">
-                        <div class="card-img" style="height: 280px; overflow: hidden;">
-                            <img src="https://img.youtube.com/vi/vpPYFnJsJu0/maxresdefault.jpg"
-                                alt="Episodes" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div class="card-content" style="padding: 32px;">
-                            <span style="color: var(--primary-brand); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">Videos</span>
-                            <h3 style="margin: 16px 0; font-size: 1.6rem; color: var(--text-main);">Episodes</h3>
-                            <p style="color: #4a4a4a; font-size: 1.05rem; line-height: 1.7;">
-                                Authentic conversations exploring life, culture, and navigating between worlds.
+                    <!-- Blog Post 2 -->
+                    <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
+                        <div style="padding: 40px;">
+                            <span style="color: var(--primary-navy); font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 16px;">November 2024</span>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 16px; color: var(--text-main); font-weight: 600;">Lessons from the Himalayas</h3>
+                            <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.7; margin-bottom: 24px;">
+                                In the remote highlands where my family lives, I learned more about happiness, community, and resilience than any classroom could teach.
                             </p>
+                            <a href="blog-post-2.html" style="color: var(--primary-navy); font-weight: 600; text-decoration: none; font-size: 0.9375rem;">Read More →</a>
                         </div>
-                    </a>
+                    </div>
 
-                    <!-- Blog Card -->
-                    <a href="blog.html" class="card" style="text-decoration: none; transition: transform 0.3s ease;">
-                        <div class="card-img" style="height: 280px; overflow: hidden;">
-                            <img src="images/himalayan_texture_background_1766919437746.png" alt="Blog"
-                                style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div class="card-content" style="padding: 32px;">
-                            <span style="color: var(--primary-brand); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">Reflections</span>
-                            <h3 style="margin: 16px 0; font-size: 1.6rem; color: var(--text-main);">Blog</h3>
-                            <p style="color: #4a4a4a; font-size: 1.05rem; line-height: 1.7;">
-                                Written reflections on identity, culture, purpose, and walking the path between two worlds.
+                    <!-- Blog Post 3 -->
+                    <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
+                        <div style="padding: 40px;">
+                            <span style="color: var(--primary-navy); font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 16px;">October 2024</span>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 16px; color: var(--text-main); font-weight: 600;">Why I Started Zampa</h3>
+                            <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.7; margin-bottom: 24px;">
+                                The moment I realized I needed to create Zampa wasn't in a classroom or at a conference. It was in a small school in the highlands.
                             </p>
+                            <a href="blog-post-3.html" style="color: var(--primary-navy); font-weight: 600; text-decoration: none; font-size: 0.9375rem;">Read More →</a>
                         </div>
-                    </a>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 50px;">
+                    <a href="blog.html" class="btn" style="background-color: var(--primary-navy); color: white; padding: 14px 36px; font-size: 0.9375rem; font-weight: 600; text-decoration: none; display: inline-block; border-radius: 6px;">Read All Posts →</a>
                 </div>
             </div>
         </section>
 
         <!-- CTA Section -->
-        <section class="section"
-            style="background: linear-gradient(135deg, #111E47 0%, #1a2a5e 100%); color: white; text-align: center; padding: 100px 0;">
+        <section class="section" style="padding: 100px 0; background: linear-gradient(135deg, #111E47 0%, #1a2a5e 100%); color: white; text-align: center;">
             <div class="container" style="max-width: 650px;">
-                <h2 style="font-size: clamp(1.75rem, 4vw, 2.25rem); margin-bottom: 20px; font-weight: 500;">Join the Zampa Movement</h2>
-                <p style="margin-bottom: 40px; opacity: 0.9; font-size: 1.0625rem; line-height: 1.7;">
-                    Be part of building bridges that connect people, ideas, and stories across the globe.
+                <h2 style="font-size: clamp(1.75rem, 4vw, 2.25rem); margin-bottom: 20px; font-weight: 500; color: white;">Join the Journey</h2>
+                <p style="margin-bottom: 40px; opacity: 0.9; font-size: 1.0625rem; line-height: 1.7; color: white;">
+                    Be part of building bridges that connect people, ideas, and stories across continents.
                 </p>
-                <a href="contact.html" class="btn"
-                    style="background-color: white; color: var(--primary-navy); padding: 14px 40px; font-size: 0.9375rem; font-weight: 600; border-radius: 6px;">Connect
-                    With Us</a>
+                <a href="contact.html" class="btn" style="background-color: white; color: var(--primary-navy); padding: 14px 40px; font-size: 0.9375rem; font-weight: 600; border-radius: 6px; text-decoration: none;">Join Zampa</a>
             </div>
         </section>
     </main>
@@ -235,30 +202,42 @@
         <div class="container" style="padding: 60px 0 30px;">
             <div class="footer-content" style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 50px;">
                 <div>
-                    <img src="images/Logo without BG.png" alt="Zampa" style="height: 60px; margin-bottom: 24px;">
-                    <p style="opacity: 0.8; font-size: 1rem; line-height: 1.7; max-width: 350px;">
-                        Bridging the traditional wisdom of the Himalayas with the opportunities of the modern world. Finding purpose through connection.
+                    <img src="images/logo.png" alt="Zampa" style="height: 60px; margin-bottom: 24px;">
+                    <p style="opacity: 0.8; font-size: 1rem; line-height: 1.7; max-width: 350px; margin-bottom: 20px;">
+                        Zampa – Building Bridges
+                    </p>
+                    <p style="opacity: 0.7; font-size: 0.9375rem; margin-bottom: 8px;">
+                        <a href="http://www.zampabridge.org" style="color: rgba(255,255,255,0.7); text-decoration: none;">www.zampabridge.org</a>
+                    </p>
+                    <p style="opacity: 0.7; font-size: 0.9375rem;">
+                        <a href="mailto:info@zampabridge.org" style="color: rgba(255,255,255,0.7); text-decoration: none;">info@zampabridge.org</a>
                     </p>
                 </div>
                 <div>
                     <h4 style="margin-bottom: 20px; font-size: 1.1rem;">Navigation</h4>
                     <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 12px;"><a href="journey.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">Journey</a></li>
                         <li style="margin-bottom: 12px;"><a href="episodes.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">Episodes</a></li>
                         <li style="margin-bottom: 12px;"><a href="blog.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">Blog</a></li>
+                        <li style="margin-bottom: 12px;"><a href="contact.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">Join Zampa</a></li>
+                        <li style="margin-bottom: 12px;"><a href="about.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">About</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 style="margin-bottom: 20px; font-size: 1.1rem;">Connect</h4>
                     <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 12px;"><a href="contact.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">Get in Touch</a></li>
-                        <li style="margin-bottom: 12px;"><a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none;">Instagram</a></li>
-                        <li style="margin-bottom: 12px;"><a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none;">YouTube</a></li>
+                        <li style="margin-bottom: 12px;"><a href="https://www.instagram.com/zampabridge/" target="_blank" rel="noopener noreferrer" style="color: rgba(255,255,255,0.8); text-decoration: none;">Instagram</a></li>
+                        <li style="margin-bottom: 12px;"><a href="https://www.linkedin.com/company/zampa%E2%80%94building-bridges/posts/?feedView=all" target="_blank" rel="noopener noreferrer" style="color: rgba(255,255,255,0.8); text-decoration: none;">LinkedIn</a></li>
+                        <li style="margin-bottom: 12px;"><a href="https://www.youtube.com/@ZAMPA-BuildingBridges" target="_blank" rel="noopener noreferrer" style="color: rgba(255,255,255,0.8); text-decoration: none;">YouTube</a></li>
+                    </ul>
+                    <h4 style="margin: 30px 0 20px; font-size: 1.1rem;">Support Zampa</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 12px;"><a href="contact.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">Write to Us</a></li>
+                        <li style="margin-bottom: 12px;"><a href="#donate" style="color: rgba(255,255,255,0.8); text-decoration: none;">Donate</a></li>
                     </ul>
                 </div>
             </div>
             <div class="copyright" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; text-align: center; opacity: 0.6; font-size: 0.9rem;">
-                &copy; 2025 Zampa. Working for a world where every young person can find purpose.
+                &copy; 2025 Zampa – Building Bridges
             </div>
         </div>
     </footer>
