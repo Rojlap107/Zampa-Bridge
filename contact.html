@@ -79,7 +79,7 @@
                     <p style="text-align: center; color: var(--text-secondary); font-size: 1.0625rem; margin-bottom: 40px; line-height: 1.7;">
                         Have questions or want to get involved? We'd love to hear from you.
                     </p>
-                    <form id="contact-form">
+                    <form id="contact-form" action="https://formspree.io/f/mjgkpzvw" method="POST">
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px;">
                         <div style="display: flex; flex-direction: column; gap: 8px;">
                             <label for="name" style="font-weight: 600; font-size: 0.875rem; color: var(--text-main); letter-spacing: 0.3px;">Name</label>
@@ -195,18 +195,54 @@
     </footer>
 
     <script src="script.js"></script>
-    <!-- BACKEND DISABLED: Contact form submission disabled - form ready for manual setup -->
     <script>
         document.getElementById('contact-form').addEventListener('submit', async (e) => {
             e.preventDefault();
+            const form = e.target;
             const status = document.getElementById('form-status');
+            const submitBtn = document.getElementById('submit-btn');
 
-            // Show message that backend is disabled
-            status.innerText = "Form submission is currently disabled. Please reach out via social media or email directly.";
-            status.style.backgroundColor = "#f8f6f4";
-            status.style.color = "var(--text-secondary)";
-            status.style.border = "1px solid var(--border-light)";
-            status.style.display = "block";
+            // Disable button and show loading state
+            submitBtn.disabled = true;
+            submitBtn.innerText = 'Sending...';
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    // Success
+                    status.innerText = "Thank you for your message! We'll get back to you soon.";
+                    status.style.backgroundColor = "#d4edda";
+                    status.style.color = "#155724";
+                    status.style.border = "1px solid #c3e6cb";
+                    status.style.display = "block";
+                    form.reset();
+                } else {
+                    // Error
+                    status.innerText = "Oops! There was a problem sending your message. Please try again.";
+                    status.style.backgroundColor = "#f8d7da";
+                    status.style.color = "#721c24";
+                    status.style.border = "1px solid #f5c6cb";
+                    status.style.display = "block";
+                }
+            } catch (error) {
+                // Network error
+                status.innerText = "There was a problem connecting. Please try again later.";
+                status.style.backgroundColor = "#f8d7da";
+                status.style.color = "#721c24";
+                status.style.border = "1px solid #f5c6cb";
+                status.style.display = "block";
+            }
+
+            // Re-enable button
+            submitBtn.disabled = false;
+            submitBtn.innerText = 'Send Message';
         });
     </script>
 </body>
