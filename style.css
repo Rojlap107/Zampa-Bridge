@@ -549,6 +549,23 @@ footer .copyright {
     gap: 30px !important;
   }
 
+  /* Ensure video embeds are visible and responsive on mobile */
+  div[style*="padding-bottom: 56.25%"] {
+    width: 100% !important;
+    padding-bottom: 56.25% !important;
+    height: 0 !important;
+    position: relative !important;
+    display: block !important;
+  }
+
+  div[style*="padding-bottom: 56.25%"] iframe {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
   /* Contact form - stack name/email fields */
   form div[style*="grid-template-columns: 1fr 1fr"] {
     display: flex !important;
@@ -574,6 +591,11 @@ footer .copyright {
     gap: 30px !important;
   }
 
+  /* Episodes section - video first, then text */
+  section[style*="padding: 100px 0"][style*="background-color: white"] > .container > div {
+    flex-direction: column !important;
+  }
+
   /* Adjust padding for mobile */
   .container {
     padding-left: 20px !important;
@@ -583,6 +605,12 @@ footer .copyright {
   section[style*="padding"] {
     padding-top: 60px !important;
     padding-bottom: 60px !important;
+  }
+
+  /* Video container border radius */
+  div[style*="border-radius: 12px"][style*="box-shadow"][style*="padding-bottom: 56.25%"] {
+    border-radius: 8px !important;
+    margin-bottom: 20px;
   }
 
   /* Footer grid fix */
