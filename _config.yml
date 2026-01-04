@@ -1,0 +1,23 @@
+# GitHub Pages Jekyll Configuration
+# Enables clean URLs without .html extensions
+
+# Exclude files from processing
+exclude:
+  - node_modules/
+  - package.json
+  - package-lock.json
+  - netlify.toml
+  - netlify/
+  - .git/
+  - .gitignore
+  - README.md
+
+# Permalink style
+permalink: pretty
+
+# Build settings
+markdown: kramdown
+
+# Plugins
+plugins:
+  - jekyll-redirect-from
