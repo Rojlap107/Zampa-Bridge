@@ -487,10 +487,21 @@ footer .copyright {
     --header-height: 70px;
   }
 
-  /* Force header to always have dark background on mobile */
-  header,
+  /* Mobile header - same behavior as desktop */
   body.home-page header {
-    background-color: rgba(42, 42, 42, 0.98) !important;
+    background-color: transparent;
+    border-bottom: none;
+  }
+
+  body.home-page header.scrolled {
+    background-color: rgba(42, 42, 42, 0.98);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Non-homepage headers stay dark on mobile */
+  body:not(.home-page) header {
+    background-color: rgba(42, 42, 42, 0.98);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
