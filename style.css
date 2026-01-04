@@ -457,6 +457,29 @@ footer .copyright {
   footer .footer-content {
     grid-template-columns: 1fr 1fr;
   }
+
+  /* Adjust grid gaps for tablets */
+  div[style*="gap: 50px"],
+  div[style*="gap: 60px"],
+  div[style*="gap: 70px"] {
+    gap: 40px !important;
+  }
+
+  /* Episode/video sections */
+  section div[style*="grid-template-columns: 1fr 1fr"] {
+    gap: 40px !important;
+  }
+
+  /* Gallery grid - 3 columns on tablets */
+  div[id$="-gallery"][style*="grid-template-columns"] {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 20px !important;
+  }
+
+  /* Journey card */
+  .journey-card-info {
+    padding: 32px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -517,8 +540,53 @@ footer .copyright {
     height: 240px;
   }
 
-  /* Stack two-column sections */
-  section[style*="grid-template-columns: 1fr 1fr"] {
+  /* Stack two-column sections on mobile */
+  .container > div[style*="grid-template-columns: 1fr 1fr"],
+  .section > div[style*="grid-template-columns: 1fr 1fr"],
+  div[style*="display: grid"][style*="grid-template-columns: 1fr 1fr"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 30px !important;
+  }
+
+  /* Contact form - stack name/email fields */
+  form div[style*="grid-template-columns: 1fr 1fr"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 24px !important;
+  }
+
+  /* Blog grid - single column on mobile */
+  div[style*="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr))"],
+  div[style*="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))"] {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* Gallery grid - 2 columns on mobile */
+  div[id$="-gallery"][style*="grid-template-columns"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 15px !important;
+  }
+
+  /* Journey/About section image-text layout */
+  .container > div[style*="display: grid"] {
+    gap: 30px !important;
+  }
+
+  /* Adjust padding for mobile */
+  .container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  section[style*="padding"] {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+  }
+
+  /* Footer grid fix */
+  footer .footer-content {
     grid-template-columns: 1fr !important;
   }
 }
@@ -535,6 +603,46 @@ footer .copyright {
 
   .card-content {
     padding: 24px;
+  }
+
+  /* Gallery - single column on very small screens */
+  div[id$="-gallery"][style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Journey card padding */
+  .journey-card-info {
+    padding: 24px !important;
+  }
+
+  /* Hero section padding */
+  .hero-section {
+    padding-top: 60px !important;
+    padding-bottom: 40px !important;
+  }
+
+  /* Contact form elements */
+  form input,
+  form textarea,
+  form button {
+    font-size: 16px !important; /* Prevents zoom on iOS */
+  }
+
+  /* Support/Donate section */
+  div[style*="background: linear-gradient(135deg, #111E47"] {
+    padding: 40px 24px !important;
+  }
+
+  /* Blog post cards */
+  div[style*="background: white; border-radius: 12px"] > div {
+    padding: 28px !important;
+  }
+
+  /* Social media circles */
+  a[style*="width: 80px; height: 80px"] {
+    width: 70px !important;
+    height: 70px !important;
+    font-size: 0.75rem !important;
   }
 }
 
@@ -555,4 +663,44 @@ button:focus,
 .btn:focus {
   outline: 2px solid var(--accent-warm);
   outline-offset: 2px;
+}
+
+/* Mobile touch improvements */
+@media (hover: none) and (pointer: coarse) {
+  /* Larger touch targets on mobile */
+  a, button, .btn {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Remove hover effects on touch devices */
+  .card:hover {
+    transform: none;
+  }
+
+  .btn:hover {
+    transform: none;
+  }
+
+  /* Improve tap highlight */
+  a, button, input, textarea {
+    -webkit-tap-highlight-color: rgba(212, 165, 116, 0.2);
+  }
+}
+
+/* Prevent text size adjustment on orientation change */
+html {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Improve video/iframe responsiveness */
+iframe {
+  max-width: 100%;
+  border: none;
 }
