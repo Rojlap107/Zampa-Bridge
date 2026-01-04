@@ -59,57 +59,60 @@
             <div class="container" style="max-width: 900px;">
                 <h2 style="font-size: clamp(1.75rem, 3.5vw, 2.25rem); text-align: center; margin-bottom: 50px; color: var(--text-main); font-weight: 600;">Support Zampa – Building Bridges</h2>
 
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; max-width: 1000px; margin: 0 auto;">
-                    <!-- Write to Us Form -->
-                    <div style="background: white; padding: 40px; border-radius: 12px; border: 1px solid var(--border-light); box-shadow: var(--shadow-sm);">
-                        <h3 style="font-size: 1.5rem; margin-bottom: 24px; color: var(--text-main); font-weight: 600;">Write to Us</h3>
-                        <form id="contact-form">
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px;">
-                            <div style="display: flex; flex-direction: column; gap: 8px;">
-                                <label for="name" style="font-weight: 600; font-size: 0.875rem; color: var(--text-main); letter-spacing: 0.3px;">Name</label>
-                                <input type="text" id="name" name="name"
-                                    style="padding: 14px 16px; border: 1px solid var(--border-medium); border-radius: 6px; font-family: var(--font-body); font-size: 1rem; outline: none; transition: all 0.3s;"
-                                    onfocus="this.style.borderColor='var(--primary-navy)'; this.style.boxShadow='0 0 0 3px rgba(17,30,71,0.1)'"
-                                    onblur="this.style.borderColor='var(--border-medium)'; this.style.boxShadow='none'" required>
-                            </div>
-                            <div style="display: flex; flex-direction: column; gap: 8px;">
-                                <label for="email" style="font-weight: 600; font-size: 0.875rem; color: var(--text-main); letter-spacing: 0.3px;">Email</label>
-                                <input type="email" id="email" name="email"
-                                    style="padding: 14px 16px; border: 1px solid var(--border-medium); border-radius: 6px; font-family: var(--font-body); font-size: 1rem; outline: none; transition: all 0.3s;"
-                                    onfocus="this.style.borderColor='var(--primary-navy)'; this.style.boxShadow='0 0 0 3px rgba(17,30,71,0.1)'"
-                                    onblur="this.style.borderColor='var(--border-medium)'; this.style.boxShadow='none'" required>
-                            </div>
-                        </div>
+                <!-- Donate Section -->
+                <div style="background: linear-gradient(135deg, #111E47 0%, #1a2a5e 100%); padding: 60px 40px; border-radius: 12px; box-shadow: var(--shadow-md); color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; margin-bottom: 50px;">
+                    <h3 style="font-size: 1.75rem; margin-bottom: 24px; color: white; font-weight: 600;">Support Our Mission</h3>
+                    <p style="font-size: 1.125rem; line-height: 1.8; color: white; margin-bottom: 36px; max-width: 700px;">
+                        Your contribution helps build bridges between communities, support youth leadership, and create lasting connections across continents.
+                    </p>
+                    <a href="#donate" class="btn"
+                        style="background-color: white; color: var(--primary-navy); padding: 18px 56px; font-size: 1.0625rem; font-weight: 600; border-radius: 6px; text-decoration: none; display: inline-block; transition: all 0.3s;"
+                        onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.15)'"
+                        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                        Donate
+                    </a>
+                </div>
 
-                        <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 32px;">
-                            <label for="message" style="font-weight: 600; font-size: 0.875rem; color: var(--text-main); letter-spacing: 0.3px;">Message</label>
-                            <textarea id="message" name="message" rows="6"
-                                style="padding: 14px 16px; border: 1px solid var(--border-medium); border-radius: 6px; font-family: var(--font-body); font-size: 1rem; outline: none; transition: all 0.3s; resize: vertical;"
+                <!-- Write to Us Form -->
+                <div style="background: white; padding: 50px; border-radius: 12px; border: 1px solid var(--border-light); box-shadow: var(--shadow-sm); max-width: 800px; margin: 0 auto;">
+                    <h3 style="font-size: 1.75rem; margin-bottom: 12px; color: var(--text-main); font-weight: 600; text-align: center;">Write to Us</h3>
+                    <p style="text-align: center; color: var(--text-secondary); font-size: 1.0625rem; margin-bottom: 40px; line-height: 1.7;">
+                        Have questions or want to get involved? We'd love to hear from you.
+                    </p>
+                    <form id="contact-form">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px;">
+                        <div style="display: flex; flex-direction: column; gap: 8px;">
+                            <label for="name" style="font-weight: 600; font-size: 0.875rem; color: var(--text-main); letter-spacing: 0.3px;">Name</label>
+                            <input type="text" id="name" name="name"
+                                style="padding: 14px 16px; border: 1px solid var(--border-medium); border-radius: 6px; font-family: var(--font-body); font-size: 1rem; outline: none; transition: all 0.3s;"
                                 onfocus="this.style.borderColor='var(--primary-navy)'; this.style.boxShadow='0 0 0 3px rgba(17,30,71,0.1)'"
-                                onblur="this.style.borderColor='var(--border-medium)'; this.style.boxShadow='none'" required></textarea>
+                                onblur="this.style.borderColor='var(--border-medium)'; this.style.boxShadow='none'" required>
                         </div>
-
-                            <button type="submit" id="submit-btn" class="btn btn-primary"
-                                style="width: 100%; padding: 16px; font-size: 0.9375rem; font-weight: 600; background-color: var(--primary-navy); color: white; border: none; border-radius: 6px; cursor: pointer; transition: all 0.3s;">
-                                Send Message
-                            </button>
-                        </form>
-
-                        <div id="form-status"
-                            style="margin-top: 20px; padding: 16px; border-radius: 6px; display: none; text-align: center; font-weight: 500; font-size: 0.9375rem;">
+                        <div style="display: flex; flex-direction: column; gap: 8px;">
+                            <label for="email" style="font-weight: 600; font-size: 0.875rem; color: var(--text-main); letter-spacing: 0.3px;">Email</label>
+                            <input type="email" id="email" name="email"
+                                style="padding: 14px 16px; border: 1px solid var(--border-medium); border-radius: 6px; font-family: var(--font-body); font-size: 1rem; outline: none; transition: all 0.3s;"
+                                onfocus="this.style.borderColor='var(--primary-navy)'; this.style.boxShadow='0 0 0 3px rgba(17,30,71,0.1)'"
+                                onblur="this.style.borderColor='var(--border-medium)'; this.style.boxShadow='none'" required>
                         </div>
                     </div>
 
-                    <!-- Donate Section -->
-                    <div style="background: linear-gradient(135deg, #111E47 0%, #1a2a5e 100%); padding: 40px; border-radius: 12px; box-shadow: var(--shadow-md); color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; min-height: 400px;">
-                        <h3 style="font-size: 1.5rem; margin-bottom: 20px; color: white; font-weight: 600;">Support Our Mission</h3>
-                        <p style="font-size: 1.0625rem; line-height: 1.7; opacity: 0.9; margin-bottom: 32px;">
-                            Your contribution helps build bridges between communities, support youth leadership, and create lasting connections across continents.
-                        </p>
-                        <a href="#donate" class="btn"
-                            style="background-color: white; color: var(--primary-navy); padding: 16px 48px; font-size: 1rem; font-weight: 600; border-radius: 6px; text-decoration: none; display: inline-block;">
-                            Donate
-                        </a>
+                    <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 32px;">
+                        <label for="message" style="font-weight: 600; font-size: 0.875rem; color: var(--text-main); letter-spacing: 0.3px;">Message</label>
+                        <textarea id="message" name="message" rows="6"
+                            style="padding: 14px 16px; border: 1px solid var(--border-medium); border-radius: 6px; font-family: var(--font-body); font-size: 1rem; outline: none; transition: all 0.3s; resize: vertical;"
+                            onfocus="this.style.borderColor='var(--primary-navy)'; this.style.boxShadow='0 0 0 3px rgba(17,30,71,0.1)'"
+                            onblur="this.style.borderColor='var(--border-medium)'; this.style.boxShadow='none'" required></textarea>
+                    </div>
+
+                        <button type="submit" id="submit-btn" class="btn btn-primary"
+                            style="width: 100%; padding: 16px; font-size: 0.9375rem; font-weight: 600; background-color: var(--primary-navy); color: white; border: none; border-radius: 6px; cursor: pointer; transition: all 0.3s;">
+                            Send Message
+                        </button>
+                    </form>
+
+                    <div id="form-status"
+                        style="margin-top: 20px; padding: 16px; border-radius: 6px; display: none; text-align: center; font-weight: 500; font-size: 0.9375rem;">
                     </div>
                 </div>
 

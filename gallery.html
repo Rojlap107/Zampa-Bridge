@@ -50,99 +50,168 @@
         <section class="section" style="padding: 40px 0 80px; background-color: white;">
             <div class="container" style="max-width: 1200px;">
                 <div style="text-align: center; margin-bottom: 60px;">
-                    <h2 style="font-size: clamp(1.75rem, 3.5vw, 2.25rem); margin-bottom: 20px; color: var(--text-main); font-weight: 600;">Two Worlds, One Bridge</h2>
+                    <h2 style="font-size: clamp(1.75rem, 3.5vw, 2.25rem); margin-bottom: 20px; color: var(--text-main); font-weight: 600;">Moments from the Journey</h2>
                 </div>
 
-                <!-- Himalayas Section -->
+                <!-- Kids Section -->
                 <div style="margin-bottom: 100px;">
                     <div style="text-align: center; margin-bottom: 40px;">
-                        <h3 style="font-size: 1.75rem; color: var(--primary-navy); margin-bottom: 12px; font-weight: 600;">The Himalayas</h3>
+                        <h3 style="font-size: 1.75rem; color: var(--primary-navy); margin-bottom: 12px; font-weight: 600;">Youth & Community</h3>
                         <p style="font-size: 1.0625rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
-                            Traditional wisdom, sustainable living, and ancient cultural heritage
+                            Young minds, bright futures, and the power of connection
                         </p>
                     </div>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-                        <!-- Gallery images will be added here -->
-                        <div style="background: #f8f6f4; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; border: 2px dashed #d0d0d0;">
-                            <p style="color: var(--text-muted); font-size: 0.9375rem; padding: 20px; text-align: center;">Gallery images from the Himalayas will be displayed here</p>
+                    <div id="kids-gallery" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                        <div style="border-radius: 12px; overflow: hidden; aspect-ratio: 4/3;">
+                            <img class="gallery-image" src="images/gallery/kids/DSC00172 2.JPG" alt="Youth community" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
-                        <div style="background: #f8f6f4; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; border: 2px dashed #d0d0d0;">
-                            <p style="color: var(--text-muted); font-size: 0.9375rem; padding: 20px; text-align: center;">Gallery images from the Himalayas will be displayed here</p>
+                        <div style="border-radius: 12px; overflow: hidden; aspect-ratio: 4/3;">
+                            <img class="gallery-image" src="images/gallery/kids/DSC00175 2.JPG" alt="Youth community" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
-                        <div style="background: #f8f6f4; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; border: 2px dashed #d0d0d0;">
-                            <p style="color: var(--text-muted); font-size: 0.9375rem; padding: 20px; text-align: center;">Gallery images from the Himalayas will be displayed here</p>
+                        <div style="border-radius: 12px; overflow: hidden; aspect-ratio: 4/3;">
+                            <img class="gallery-image" src="images/gallery/kids/DSC00177 2.JPG" alt="Youth community" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
-                        <div style="background: #f8f6f4; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; border: 2px dashed #d0d0d0;">
-                            <p style="color: var(--text-muted); font-size: 0.9375rem; padding: 20px; text-align: center;">Gallery images from the Himalayas will be displayed here</p>
+                        <div style="border-radius: 12px; overflow: hidden; aspect-ratio: 4/3;">
+                            <img class="gallery-image" src="images/gallery/kids/DSC00179 3.JPG" alt="Youth community" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
-                        <div style="background: #f8f6f4; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; border: 2px dashed #d0d0d0;">
-                            <p style="color: var(--text-muted); font-size: 0.9375rem; padding: 20px; text-align: center;">Gallery images from the Himalayas will be displayed here</p>
+                        <div style="border-radius: 12px; overflow: hidden; aspect-ratio: 4/3;">
+                            <img class="gallery-image" src="images/gallery/kids/DSC00291.JPG" alt="Youth community" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
-                        <div style="background: #f8f6f4; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; border: 2px dashed #d0d0d0;">
-                            <p style="color: var(--text-muted); font-size: 0.9375rem; padding: 20px; text-align: center;">Gallery images from the Himalayas will be displayed here</p>
+                        <div style="border-radius: 12px; overflow: hidden; aspect-ratio: 4/3;">
+                            <img class="gallery-image" src="images/gallery/kids/DSC00294.JPG" alt="Youth community" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
+                        <!-- Hidden images -->
+                        <div class="hidden-image" style="border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; display: none;">
+                            <img class="gallery-image" src="images/gallery/kids/DSC00295.JPG" alt="Youth community" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 40px;">
+                        <button id="kids-toggle" class="btn" style="background-color: var(--primary-navy); color: white; padding: 12px 32px; font-size: 0.9375rem; font-weight: 600; border: none; border-radius: 6px; cursor: pointer;">Show More (1 more photo)</button>
                     </div>
                 </div>
 
-                <!-- New England Section -->
-                <div style="margin-bottom: 80px;">
+                <!-- Culture Section -->
+                <div style="margin-bottom: 100px;">
                     <div style="text-align: center; margin-bottom: 40px;">
-                        <h3 style="font-size: 1.75rem; color: var(--primary-navy); margin-bottom: 12px; font-weight: 600;">New England</h3>
+                        <h3 style="font-size: 1.75rem; color: var(--primary-navy); margin-bottom: 12px; font-weight: 600;">Culture & Heritage</h3>
                         <p style="font-size: 1.0625rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
-                            Modern opportunities, education, and technological advancement
+                            Traditional wisdom, ceremonies, and living cultural heritage
                         </p>
                     </div>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-                        <!-- Gallery images will be added here -->
-                        <div style="background: #f8f6f4; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; border: 2px dashed #d0d0d0;">
-                            <p style="color: var(--text-muted); font-size: 0.9375rem; padding: 20px; text-align: center;">Gallery images from New England will be displayed here</p>
+                    <div id="culture-gallery" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                        <div style="border-radius: 12px; overflow: hidden; aspect-ratio: 4/3;">
+                            <img class="gallery-image" src="images/gallery/culture/C0057T01.JPG" alt="Cultural heritage" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
-                        <div style="background: #f8f6f4; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; border: 2px dashed #d0d0d0;">
-                            <p style="color: var(--text-muted); font-size: 0.9375rem; padding: 20px; text-align: center;">Gallery images from New England will be displayed here</p>
+                        <div style="border-radius: 12px; overflow: hidden; aspect-ratio: 4/3;">
+                            <img class="gallery-image" src="images/gallery/culture/C0059T01.JPG" alt="Cultural heritage" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
-                        <div style="background: #f8f6f4; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; border: 2px dashed #d0d0d0;">
-                            <p style="color: var(--text-muted); font-size: 0.9375rem; padding: 20px; text-align: center;">Gallery images from New England will be displayed here</p>
+                        <div style="border-radius: 12px; overflow: hidden; aspect-ratio: 4/3;">
+                            <img class="gallery-image" src="images/gallery/culture/C0063T01.JPG" alt="Cultural heritage" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
-                        <div style="background: #f8f6f4; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; border: 2px dashed #d0d0d0;">
-                            <p style="color: var(--text-muted); font-size: 0.9375rem; padding: 20px; text-align: center;">Gallery images from New England will be displayed here</p>
+                        <div style="border-radius: 12px; overflow: hidden; aspect-ratio: 4/3;">
+                            <img class="gallery-image" src="images/gallery/culture/C0069T01.JPG" alt="Cultural heritage" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
-                        <div style="background: #f8f6f4; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; border: 2px dashed #d0d0d0;">
-                            <p style="color: var(--text-muted); font-size: 0.9375rem; padding: 20px; text-align: center;">Gallery images from New England will be displayed here</p>
+                        <div style="border-radius: 12px; overflow: hidden; aspect-ratio: 4/3;">
+                            <img class="gallery-image" src="images/gallery/culture/C0076T01.JPG" alt="Cultural heritage" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
-                        <div style="background: #f8f6f4; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; border: 2px dashed #d0d0d0;">
-                            <p style="color: var(--text-muted); font-size: 0.9375rem; padding: 20px; text-align: center;">Gallery images from New England will be displayed here</p>
+                        <div style="border-radius: 12px; overflow: hidden; aspect-ratio: 4/3;">
+                            <img class="gallery-image" src="images/gallery/culture/C0077T01.JPG" alt="Cultural heritage" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <!-- Hidden images -->
+                        <div class="hidden-image" style="border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; display: none;">
+                            <img class="gallery-image" src="images/gallery/culture/C0081T01.JPG" alt="Cultural heritage" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="hidden-image" style="border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; display: none;">
+                            <img class="gallery-image" src="images/gallery/culture/C0084T01.JPG" alt="Cultural heritage" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="hidden-image" style="border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; display: none;">
+                            <img class="gallery-image" src="images/gallery/culture/C0085T01.JPG" alt="Cultural heritage" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="hidden-image" style="border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; display: none;">
+                            <img class="gallery-image" src="images/gallery/culture/C0099T01.JPG" alt="Cultural heritage" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="hidden-image" style="border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; display: none;">
+                            <img class="gallery-image" src="images/gallery/culture/C0102T01.JPG" alt="Cultural heritage" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="hidden-image" style="border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; display: none;">
+                            <img class="gallery-image" src="images/gallery/culture/DSC00198.JPG" alt="Cultural heritage" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="hidden-image" style="border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; display: none;">
+                            <img class="gallery-image" src="images/gallery/culture/DSC00199.JPG" alt="Cultural heritage" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 40px;">
+                        <button id="culture-toggle" class="btn" style="background-color: var(--primary-navy); color: white; padding: 12px 32px; font-size: 0.9375rem; font-weight: 600; border: none; border-radius: 6px; cursor: pointer;">Show More (7 more photos)</button>
+                    </div>
+                </div>
+
+                <!-- Education Section -->
+                <div style="margin-bottom: 100px;">
+                    <div style="text-align: center; margin-bottom: 40px;">
+                        <h3 style="font-size: 1.75rem; color: var(--primary-navy); margin-bottom: 12px; font-weight: 600;">Education & Learning</h3>
+                        <p style="font-size: 1.0625rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
+                            Teaching, learning, and expanding access to knowledge
+                        </p>
+                    </div>
+                    <div id="education-gallery" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                        <div style="border-radius: 12px; overflow: hidden; aspect-ratio: 4/3;">
+                            <img class="gallery-image" src="images/gallery/education/DSC00357.JPG" alt="Education" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div style="border-radius: 12px; overflow: hidden; aspect-ratio: 4/3;">
+                            <img class="gallery-image" src="images/gallery/education/DSC00359.JPG" alt="Education" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div style="border-radius: 12px; overflow: hidden; aspect-ratio: 4/3;">
+                            <img class="gallery-image" src="images/gallery/education/DSC00361 (1).JPG" alt="Education" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div style="border-radius: 12px; overflow: hidden; aspect-ratio: 4/3;">
+                            <img class="gallery-image" src="images/gallery/education/DSC00364.JPG" alt="Education" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div style="border-radius: 12px; overflow: hidden; aspect-ratio: 4/3;">
+                            <img class="gallery-image" src="images/gallery/education/DSC00366.JPG" alt="Education" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                     </div>
                 </div>
 
-                <!-- Zampa in Action Section -->
+                <!-- Animals Section -->
                 <div>
                     <div style="text-align: center; margin-bottom: 40px;">
-                        <h3 style="font-size: 1.75rem; color: var(--primary-navy); margin-bottom: 12px; font-weight: 600;">Zampa in Action</h3>
+                        <h3 style="font-size: 1.75rem; color: var(--primary-navy); margin-bottom: 12px; font-weight: 600;">Nature & Wildlife</h3>
                         <p style="font-size: 1.0625rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
-                            Moments of connection, learning, and building bridges across communities
+                            Living in harmony with nature and the beauty of the highlands
                         </p>
                     </div>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-                        <!-- Gallery images will be added here -->
-                        <div style="background: #f8f6f4; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; border: 2px dashed #d0d0d0;">
-                            <p style="color: var(--text-muted); font-size: 0.9375rem; padding: 20px; text-align: center;">Gallery images from Zampa activities will be displayed here</p>
+                    <div id="animals-gallery" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                        <div style="border-radius: 12px; overflow: hidden; aspect-ratio: 4/3;">
+                            <img class="gallery-image" src="images/gallery/animals/C0025T01.JPG" alt="Wildlife" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
-                        <div style="background: #f8f6f4; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; border: 2px dashed #d0d0d0;">
-                            <p style="color: var(--text-muted); font-size: 0.9375rem; padding: 20px; text-align: center;">Gallery images from Zampa activities will be displayed here</p>
+                        <div style="border-radius: 12px; overflow: hidden; aspect-ratio: 4/3;">
+                            <img class="gallery-image" src="images/gallery/animals/C0117T01.JPG" alt="Wildlife" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
-                        <div style="background: #f8f6f4; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; border: 2px dashed #d0d0d0;">
-                            <p style="color: var(--text-muted); font-size: 0.9375rem; padding: 20px; text-align: center;">Gallery images from Zampa activities will be displayed here</p>
+                        <div style="border-radius: 12px; overflow: hidden; aspect-ratio: 4/3;">
+                            <img class="gallery-image" src="images/gallery/animals/C0123T01.JPG" alt="Wildlife" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
-                        <div style="background: #f8f6f4; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; border: 2px dashed #d0d0d0;">
-                            <p style="color: var(--text-muted); font-size: 0.9375rem; padding: 20px; text-align: center;">Gallery images from Zampa activities will be displayed here</p>
+                        <div style="border-radius: 12px; overflow: hidden; aspect-ratio: 4/3;">
+                            <img class="gallery-image" src="images/gallery/animals/C0124T01.JPG" alt="Wildlife" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
-                        <div style="background: #f8f6f4; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; border: 2px dashed #d0d0d0;">
-                            <p style="color: var(--text-muted); font-size: 0.9375rem; padding: 20px; text-align: center;">Gallery images from Zampa activities will be displayed here</p>
+                        <div style="border-radius: 12px; overflow: hidden; aspect-ratio: 4/3;">
+                            <img class="gallery-image" src="images/gallery/animals/C0128T01.JPG" alt="Wildlife" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
-                        <div style="background: #f8f6f4; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; border: 2px dashed #d0d0d0;">
-                            <p style="color: var(--text-muted); font-size: 0.9375rem; padding: 20px; text-align: center;">Gallery images from Zampa activities will be displayed here</p>
+                        <div style="border-radius: 12px; overflow: hidden; aspect-ratio: 4/3;">
+                            <img class="gallery-image" src="images/gallery/animals/C0131T01.JPG" alt="Wildlife" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
+                        <!-- Hidden images -->
+                        <div class="hidden-image" style="border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; display: none;">
+                            <img class="gallery-image" src="images/gallery/animals/C0138T01.JPG" alt="Wildlife" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="hidden-image" style="border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; display: none;">
+                            <img class="gallery-image" src="images/gallery/animals/C0143T01.JPG" alt="Wildlife" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="hidden-image" style="border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; display: none;">
+                            <img class="gallery-image" src="images/gallery/animals/C0145T01.JPG" alt="Wildlife" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 40px;">
+                        <button id="animals-toggle" class="btn" style="background-color: var(--primary-navy); color: white; padding: 12px 32px; font-size: 0.9375rem; font-weight: 600; border: none; border-radius: 6px; cursor: pointer;">Show More (3 more photos)</button>
                     </div>
                 </div>
             </div>
@@ -207,6 +276,121 @@
     </footer>
 
     <script src="script.js"></script>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 9999; cursor: zoom-out;">
+        <span id="lightbox-close" style="position: absolute; top: 20px; right: 40px; font-size: 40px; color: white; cursor: pointer; z-index: 10000;">&times;</span>
+        <img id="lightbox-img" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 90%; max-height: 90%; object-fit: contain;">
+        <div id="lightbox-prev" style="position: absolute; top: 50%; left: 20px; transform: translateY(-50%); font-size: 40px; color: white; cursor: pointer; user-select: none; padding: 20px;">&#10094;</div>
+        <div id="lightbox-next" style="position: absolute; top: 50%; right: 20px; transform: translateY(-50%); font-size: 40px; color: white; cursor: pointer; user-select: none; padding: 20px;">&#10095;</div>
+    </div>
+
+    <script>
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxPrev = document.getElementById('lightbox-prev');
+        const lightboxNext = document.getElementById('lightbox-next');
+
+        // Get all gallery images
+        const galleryImages = document.querySelectorAll('.gallery-image');
+        let currentImageIndex = 0;
+
+        // Add click event to each gallery image
+        galleryImages.forEach((img, index) => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', () => {
+                currentImageIndex = index;
+                openLightbox(img.src);
+            });
+        });
+
+        function openLightbox(src) {
+            lightboxImg.src = src;
+            lightbox.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function showPrevImage() {
+            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            lightboxImg.src = galleryImages[currentImageIndex].src;
+        }
+
+        function showNextImage() {
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            lightboxImg.src = galleryImages[currentImageIndex].src;
+        }
+
+        // Close lightbox events
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Navigation
+        lightboxPrev.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showPrevImage();
+        });
+
+        lightboxNext.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showNextImage();
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.style.display === 'block') {
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                } else if (e.key === 'ArrowLeft') {
+                    showPrevImage();
+                } else if (e.key === 'ArrowRight') {
+                    showNextImage();
+                }
+            }
+        });
+
+        // Show More / Show Less functionality
+        function setupGalleryToggle(galleryId, buttonId) {
+            const button = document.getElementById(buttonId);
+            const gallery = document.getElementById(galleryId);
+
+            if (!button || !gallery) return;
+
+            const hiddenImages = gallery.querySelectorAll('.hidden-image');
+            let isExpanded = false;
+
+            button.addEventListener('click', () => {
+                isExpanded = !isExpanded;
+
+                hiddenImages.forEach(img => {
+                    img.style.display = isExpanded ? 'block' : 'none';
+                });
+
+                if (isExpanded) {
+                    button.textContent = 'Show Less';
+                } else {
+                    const count = hiddenImages.length;
+                    button.textContent = `Show More (${count} more photo${count > 1 ? 's' : ''})`;
+                }
+            });
+        }
+
+        // Initialize toggle buttons for each section
+        setupGalleryToggle('kids-gallery', 'kids-toggle');
+        setupGalleryToggle('culture-gallery', 'culture-toggle');
+        setupGalleryToggle('education-gallery', 'education-toggle');
+        setupGalleryToggle('animals-gallery', 'animals-toggle');
+    </script>
 </body>
 
 </html>
