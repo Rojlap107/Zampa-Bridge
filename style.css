@@ -487,6 +487,14 @@ footer .copyright {
     --header-height: 70px;
   }
 
+  /* Force header to always have dark background on mobile */
+  header,
+  body.home-page header {
+    background-color: rgba(42, 42, 42, 0.98) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
   header .logo img {
     height: 42px;
   }
@@ -501,7 +509,8 @@ footer .copyright {
     left: 0;
     width: 100%;
     height: calc(100vh - var(--header-height));
-    background-color: white;
+    background-color: rgba(42, 42, 42, 0.98);
+    backdrop-filter: blur(10px);
     padding: 40px;
     transform: translateX(-100%);
     transition: transform 0.3s ease;
@@ -514,13 +523,26 @@ footer .copyright {
 
   header nav ul {
     flex-direction: column;
-    gap: 24px;
-    align-items: flex-start;
+    gap: 32px;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
   }
 
   header nav a {
-    font-size: 1.125rem;
-    color: var(--text-main) !important;
+    font-size: 1.25rem;
+    color: white !important;
+    text-align: center;
+  }
+
+  header nav a::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  header nav a:hover::after,
+  header nav a.active::after {
+    width: 80%;
   }
 
   .hero-section {
