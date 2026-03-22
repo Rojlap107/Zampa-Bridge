@@ -143,37 +143,7 @@
                         Stories, reflections, and insights from the journey of building bridges across two worlds
                     </p>
                 </div>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px;">
-                    <!-- Blog Post 1 -->
-                    <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
-                        <div style="width: 100%; aspect-ratio: 16/9; overflow: hidden;">
-                            <img src="images/blog-1.jpg" alt="Introducing: ZAMPA – Bridging the Two Worlds of Young Adults" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div style="padding: 40px;">
-                            <span style="color: var(--primary-navy); font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 16px;">January 2025</span>
-                            <h3 style="font-size: 1.5rem; margin-bottom: 16px; color: var(--text-main); font-weight: 600;">Introducing: ZAMPA – Bridging the Two Worlds of Young Adults</h3>
-                            <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.7; margin-bottom: 24px;">
-                                "Living with purpose" is a philosophy for individuals where its meaning and experience varies from person to person. For the longest time I have grappled with the philosophy and practice of living with purpose. Finally, at 17, I have been able to gain some clarity...
-                            </p>
-                            <a href="/blog-post-1" style="color: var(--primary-navy); font-weight: 600; text-decoration: none; font-size: 0.9375rem;">Read More →</a>
-                        </div>
-                    </div>
-
-                    <!-- Blog Post 2 -->
-                    <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
-                        <div style="width: 100%; aspect-ratio: 16/9; overflow: hidden;">
-                            <img src="images/blog-2.jpg" alt="My Journey with Zampa" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div style="padding: 40px;">
-                            <span style="color: var(--primary-navy); font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 16px;">January 2025</span>
-                            <h3 style="font-size: 1.5rem; margin-bottom: 16px; color: var(--text-main); font-weight: 600;">My Journey with Zampa</h3>
-                            <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.7; margin-bottom: 24px;">
-                                In an increasingly fast changing world shaped by technological advancements, the youth today stands on the threshold of great social change. As a Tibetan-American born and raised in the U.S, material comfort was a natural home for me...
-                            </p>
-                            <a href="/blog-post-2" style="color: var(--primary-navy); font-weight: 600; text-decoration: none; font-size: 0.9375rem;">Read More →</a>
-                        </div>
-                    </div>
-                </div>
+                <div id="blog-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px;"></div>
                 <div style="text-align: center; margin-top: 50px;">
                     <a href="/blog" class="btn" style="background-color: var(--primary-navy); color: white; padding: 14px 36px; font-size: 0.9375rem; font-weight: 600; text-decoration: none; display: inline-block; border-radius: 6px;">Read All Posts →</a>
                 </div>
@@ -237,6 +207,32 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        fetch('/blog-posts.json')
+            .then(function (res) { return res.json(); })
+            .then(function (posts) {
+                posts.sort(function (a, b) { return new Date(b.date) - new Date(a.date); });
+
+                var latest = posts.slice(0, 3);
+                var container = document.getElementById('blog-grid');
+
+                latest.forEach(function (post) {
+                    var card = document.createElement('div');
+                    card.style.cssText = 'background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.3s ease;';
+                    card.innerHTML =
+                        '<div style="width: 100%; aspect-ratio: 16/9; overflow: hidden;">' +
+                            '<img src="' + post.image + '" alt="' + post.title + '" style="width: 100%; height: 100%; object-fit: cover;">' +
+                        '</div>' +
+                        '<div style="padding: 40px;">' +
+                            '<span style="color: var(--primary-navy); font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 16px;">' + post.dateDisplay + '</span>' +
+                            '<h3 style="font-size: 1.5rem; margin-bottom: 16px; color: var(--text-main); font-weight: 600;">' + post.title + '</h3>' +
+                            '<p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.7; margin-bottom: 24px;">' + post.excerpt + '</p>' +
+                            '<a href="/blog-post.html?id=' + post.id + '" style="color: var(--primary-navy); font-weight: 600; text-decoration: none; font-size: 0.9375rem;">Read More &rarr;</a>' +
+                        '</div>';
+                    container.appendChild(card);
+                });
+            });
+    </script>
 </body>
 
 </html>
