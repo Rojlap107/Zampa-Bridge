@@ -58,5 +58,25 @@
       "image": "images/Namdol.jpg",
       "bio": "A Tibetan-American bridging two worlds through Zampa. Passionate about purposeful living, cultural heritage, and creating meaningful connections across communities."
     }
+  },
+  {
+    "id": 4,
+    "title": "Zepei Phayul: My Beautiful Homeland",
+    "date": "2026-06-01",
+    "dateDisplay": "June 2026",
+    "image": "images/blog-4.png",
+    "videoUrl": "https://www.youtube.com/watch?v=H_GY73IrnDg",
+    "excerpt": "As my aunt started filming, my cousins (Namgyal Wangchuk, age 11 and Tenzin Saldon, age 8), and I excitedly prepared to do gorshey (circle dance) to the song \"Zepei Phayul\" (my beautiful homeland). I looked at the landscape surrounding us and began to soak in its beauty...",
+    "content": [
+      "As my aunt started filming, my cousins (Namgyal Wangchuk, age 11 and Tenzin Saldon, age 8), and I excitedly prepared to do gorshey (circle dance) to the song \"Zepei Phayul\" (my beautiful homeland). I looked at the landscape surrounding us and began to soak in its beauty. It was the summer of 2025, when along with my mother, we were visiting Ladakh, our hometown and our family went on a day-long pilgrimage to sacred gompas (monasteries) and sites in the erstwhile Buddhist kingdom.",
+      "We filmed at different locations against the backdrop of the beautiful snow-clad Himalayan mountains. I thought about how I would have missed out on this experience if I were still in the U.S sulking over the internships I got rejected from the same summer. My cousins interrupted my thoughts as they giggled when they kept messing up the steps while rehearsing but quickly reminded themselves to focus since they wanted a good gorshey video.",
+      "The song \"Zepei Phayul\" means beautiful homeland in Tibetan. Tibet, our beautiful homeland, was only a few hundred kilometers away from where we stood dancing. Before China illegally occupied Tibet in 1959, our grandparents were only kids dancing in their vast grasslands. Little did they know that they would never get to step foot on it again. Although Tibetans inside Tibet are restricted from expressing their cultural identity, Tibetans in exile enjoy the privilege to preserve, promote and showcase Tibetan culture. This comes naturally to every Tibetan—keeping traditions and values alive. As my cousins and I danced to this song that was composed and performed in Tibet which also became popular in exile and diaspora, we were not only engaging in a shared cultural expression, but doing something deeply political. We were resisting the Chinese government's efforts to erase Tibetan culture while expressing solidarity with our brothers and sisters in the homeland, and strengthening our shared vision for freedom in our homeland.",
+      "My cousins and I were raised in two contrasting worlds —me in the New England, United States and them in the remote highlands of Ladakh, India. Despite that, our shared cultural heritage, tradition, and values brought us together to experience something deeply profound—longing for the beauty of our homeland. Our culture serves as the bridge that offers interconnection in a meaningful way. This is the same vision behind my project Zampa. I hope that through Zampa, I can offer similar experiences of interconnection to the young citizens of the world, and foster a sense of kinship between youth in the western world and youth living in the highlands of the Himalayas. This, I believe, will instill a sense of shared humanity."
+    ],
+    "author": {
+      "name": "Namdol",
+      "image": "images/Namdol.jpg",
+      "bio": "A Tibetan-American bridging two worlds through Zampa. Passionate about purposeful living, cultural heritage, and creating meaningful connections across communities."
+    }
   }
 ]

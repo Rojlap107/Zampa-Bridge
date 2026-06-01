@@ -136,8 +136,20 @@
                     document.title = post.title + ' | Zampa';
                     document.getElementById('post-date').textContent = post.dateDisplay;
                     document.getElementById('post-title').textContent = post.title;
-                    document.getElementById('post-image').src = post.image;
-                    document.getElementById('post-image').alt = post.title;
+                    var imageEl = document.getElementById('post-image');
+                    imageEl.src = post.image;
+                    imageEl.alt = post.title;
+
+                    if (post.videoUrl) {
+                        var imageWrap = imageEl.parentElement;
+                        var anchor = document.createElement('a');
+                        anchor.href = post.videoUrl;
+                        anchor.target = '_blank';
+                        anchor.rel = 'noopener noreferrer';
+                        anchor.style.display = 'block';
+                        imageWrap.replaceChild(anchor, imageEl);
+                        anchor.appendChild(imageEl);
+                    }
 
                     var contentEl = document.getElementById('post-content');
                     post.content.forEach(function (paragraph) {
@@ -146,6 +158,15 @@
                         p.textContent = paragraph;
                         contentEl.appendChild(p);
                     });
+
+                    if (post.videoUrl) {
+                        var cta = document.createElement('div');
+                        cta.style.cssText = 'margin: 40px 0; padding: 28px; background: #f8f6f4; border-radius: 12px; border-left: 4px solid var(--accent-warm); text-align: center;';
+                        cta.innerHTML =
+                            '<p style="margin: 0 0 16px 0; font-size: 1rem; color: var(--text-secondary);">Watch the full video on YouTube</p>' +
+                            '<a href="' + post.videoUrl + '" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="text-decoration: none; display: inline-block;">Watch on YouTube &rarr;</a>';
+                        contentEl.appendChild(cta);
+                    }
 
                     document.getElementById('author-image').src = post.author.image;
                     document.getElementById('author-image').alt = post.author.name;

@@ -145,9 +145,13 @@
                 posts.forEach(function (post) {
                     var card = document.createElement('div');
                     card.className = 'journey-card';
+                    var imgEl = '<img src="' + post.image + '" alt="' + post.title + '" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">';
+                    if (post.videoUrl) {
+                        imgEl = '<a href="' + post.videoUrl + '" target="_blank" rel="noopener noreferrer" style="display: block; width: 100%; height: 100%;">' + imgEl + '</a>';
+                    }
                     card.innerHTML =
                         '<div class="journey-card-image" style="width: 100%; height: 550px; overflow: hidden; border-radius: 12px; margin-bottom: 24px;">' +
-                            '<img src="' + post.image + '" alt="' + post.title + '" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">' +
+                            imgEl +
                         '</div>' +
                         '<div class="journey-card-info">' +
                             '<span class="label">' + post.dateDisplay + '</span>' +
